@@ -1,23 +1,28 @@
 import React, { useState } from 'react';
 import './App.css';
 
-
 function App() {
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false)
   
   function handleClick() {
-    setIsSidebarVisible(!isSidebarVisible)
+    setIsSidebarVisible(!isSidebarVisible);
+  }
+
+  function handleClose() {
+    setIsSidebarVisible(false);
   }
 
   return (
     <div className={'app'}>
       <header className={'header'}>
         <h1>Grid Playground</h1>
-        <button onClick={handleClick}>View code</button>
+        <button onClick={handleClick} >View code</button>
       </header>
-      <main className={'main'}>
-      </main>
-      {isSidebarVisible && <div className={'sidebar'} />}
+      <main className={'main'} />
+      {isSidebarVisible && (
+        <div className={'sidebar'}>
+          <button className={'close-button'} onClick={handleClose}>Close</button>
+        </div>)}
     </div>
   );
 }
