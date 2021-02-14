@@ -1,0 +1,31 @@
+.app {
+	height: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr;
+	grid-template-columns: 1fr auto;
+	grid-template-areas:
+		'header sidebar'
+		'main sidebar';
+}
+
+.header {
+	height: 56px;
+	border-bottom: 1px solid #e5e5e5;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 32px;
+	grid-area: header;
+}
+
+.main {
+	grid-area: main;
+}
+
+.sidebar {
+	width: 320px;
+	background-color: #fdfdfd;
+	height: 100%;
+	grid-area: sidebar;
+	border-left: 1px solid #e5e5e5;
+}
