@@ -8,6 +8,8 @@ interface HeaderProps {
   onColumnGutterChange: (e: any) => void;
   onColumnMarginChange: (e: any) => void;
   onCodeButtonClick: () => void;
+  toggleButtonText: string;
+  toggleButtonIcon: any;
 }
 
 export const Header = (props: HeaderProps) => {
@@ -15,11 +17,14 @@ export const Header = (props: HeaderProps) => {
     <header className={'header'}>
       <h1>Grid Playground</h1>
       <div className={'column-inputs'}>
-        <TextInput value={props.columnsState.count} onChange={props.onColumnCountChange} />
-        <TextInput value={props.columnsState.gutter} onChange={props.onColumnGutterChange} />
-        <TextInput value={props.columnsState.margin} onChange={props.onColumnMarginChange} />
+        <TextInput label={'Count'} value={props.columnsState.count} onChange={props.onColumnCountChange} />
+        <TextInput label={'Gutter'} value={props.columnsState.gutter} onChange={props.onColumnGutterChange} />
+        <TextInput label={'Margin'} value={props.columnsState.margin} onChange={props.onColumnMarginChange} />
       </div>
-      <button onClick={props.onCodeButtonClick} >View code</button>
+      <button onClick={props.onCodeButtonClick}>
+        {props.toggleButtonIcon}
+        {props.toggleButtonText}
+      </button>
     </header>
   )
 }
