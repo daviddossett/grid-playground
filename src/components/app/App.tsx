@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
+import { Grid } from '../grid/Grid';
 import { Header } from '../header/Header';
 import { Sidebar } from '../sidebar/Sidebar';
 import './App.css';
 
 export interface IColumnsState {
-  count: string;
+  count: number;
   gutter: string;
   margin: string;
 }
 
 const initialcolumnsState: IColumnsState = {
-  count: '12',
+  count: 12,
   gutter: '20',
   margin: '32',
 }
@@ -59,11 +60,7 @@ function App() {
         toggleButtonText={sidebarToggleText}
         toggleButtonIcon={sidebarToggleIcon}
       />
-      <main className={'main'}>
-        <h2>{`Count: ${columnsState.count}`}</h2>
-        <h2>{`Gutter: ${columnsState.gutter}`}</h2>
-        <h2>{`Margin: ${columnsState.margin}`}</h2>
-      </main>
+      <Grid className={'main'} columns={columnsState} />
       {isSidebarVisible && (
         <Sidebar onClose={toggleSidebar} />
       )}

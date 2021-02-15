@@ -2,7 +2,8 @@ import '../text-input/TextInput.css';
 
 interface TextInputProps {
   icon?: string;
-  value?: string;
+  type: string
+  value?: string | number;
   placeholder?: string;
   label: string;
   onChange?: (e: any) => void;
@@ -16,7 +17,7 @@ export const TextInput = (props: TextInputProps) => {
   return (
     <>
       <label aria-label={props.label} htmlFor={props.label}>{props.label}</label>
-      <input type='text' id={props.label} value={props.value} onFocus={handleFocus} onChange={props.onChange} />
+      <input type={props.type} id={props.label} value={props.value} onFocus={handleFocus} onChange={props.onChange} />
     </>
   )
 }

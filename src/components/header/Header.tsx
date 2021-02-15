@@ -17,9 +17,9 @@ export const Header = (props: HeaderProps) => {
     <header className={'header'}>
       <h1>Grid Playground</h1>
       <div className={'column-inputs'}>
-        <TextInput label={'Count'} value={props.columnsState.count} onChange={props.onColumnCountChange} />
-        <TextInput label={'Gutter'} value={props.columnsState.gutter} onChange={props.onColumnGutterChange} />
-        <TextInput label={'Margin'} value={props.columnsState.margin} onChange={props.onColumnMarginChange} />
+        <TextInput type={'number'} label={'Count'} value={props.columnsState.count} onChange={props.onColumnCountChange} />
+        <TextInput type={'number'} label={'Gutter'} value={props.columnsState.gutter} onChange={props.onColumnGutterChange} />
+        <TextInput type={'number'} label={'Margin'} value={props.columnsState.margin} onChange={props.onColumnMarginChange} />
       </div>
       <button onClick={props.onCodeButtonClick}>
         {props.toggleButtonIcon}
