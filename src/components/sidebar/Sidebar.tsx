@@ -26,6 +26,7 @@ export const Sidebar = (props: SidebarProps) => {
 				</header>
 				<pre>
 					<code className={'language-css'}>{`/* CSS */`}</code>
+					<br />
 					<code className={'language-css'}>
 						{`grid-template-columns: repeat(${props.gridState.columnCount}, 1fr);`}
 					</code>
