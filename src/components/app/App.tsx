@@ -109,7 +109,9 @@ function App() {
 				toggleButtonIcon={sidebarToggleIcon}
 			/>
 			<Grid className={'main'} grid={gridState} />
-			{isSidebarVisible && <Sidebar onClose={toggleSidebar} />}
+			{isSidebarVisible && (
+				<Sidebar gridState={gridState} onClose={toggleSidebar} />
+			)}
 		</div>
 	);
 }
