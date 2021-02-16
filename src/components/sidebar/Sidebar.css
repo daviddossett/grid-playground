@@ -1,8 +1,19 @@
 .sidebar-content {
 	height: 100%;
+	padding: 16px;
+}
+
+.sidebar-header {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
+	padding: 4px 0 24px 0;
+}
+
+.sidebar-header span {
+	font-size: 0.875em;
+	color: #fa8686;
+	font-weight: 600;
 }
 
 .coming-soon-placeholder {
