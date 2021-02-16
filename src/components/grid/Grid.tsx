@@ -9,7 +9,7 @@ export const Grid = (props: IGridProps) => {
 	const gridStyles = {
 		display: 'grid',
 		maxWidth: '100vw',
-		overflowX: 'auto',
+		overflow: 'auto',
 		gridTemplateColumns: `repeat(${props.grid.columnCount}, 1fr)`,
 		gridColumnGap: `${props.grid.columnGap}px`,
 		padding: `${props.grid.paddingTopBottom}px ${props.grid.paddingLeftRight}px`,
