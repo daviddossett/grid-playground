@@ -20,6 +20,7 @@ export const Grid = (props: IGridProps) => {
 	const columnBackground = {
 		background: 'rgba(250, 134, 134, 0.3)',
 		border: '1px dashed #fa8686',
+		borderRadius: '2px',
 	};
 
 	function generateColumns(rowCount: number, columnCount: number) {
