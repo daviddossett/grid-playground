@@ -1,3 +1,9 @@
+.input-groups-wrapper {
+	display: grid;
+	grid-column-gap: 64px;
+	grid-auto-flow: column;
+}
+
 .input-group {
 	display: grid;
 	grid-column-gap: 8px;
