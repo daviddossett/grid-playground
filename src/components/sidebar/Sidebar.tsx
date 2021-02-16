@@ -31,16 +31,16 @@ export const Sidebar = (props: SidebarProps) => {
 						{`grid-template-columns: repeat(${props.gridState.columnCount}, 1fr);`}
 					</code>
 					<code className={'language-css'}>
-						{`grid-column-gap: ${props.gridState.columnGap}px`}
+						{`grid-column-gap: ${props.gridState.columnGap}px;`}
 					</code>
 					<code className={'language-css'}>
 						{`grid-template-rows: repeat(${props.gridState.rowCount}, 1fr);`}
 					</code>
 					<code className={'language-css'}>
-						{`grid-row-gap: ${props.gridState.rowGap}px`}
+						{`grid-row-gap: ${props.gridState.rowGap}px;`}
 					</code>
 					<code className={'language-css'}>
-						{`padding: ${props.gridState.paddingTopBottom}px ${props.gridState.paddingLeftRight}px`}
+						{`padding: ${props.gridState.paddingTopBottom}px ${props.gridState.paddingLeftRight}px;`}
 					</code>
 				</pre>
 			</div>
