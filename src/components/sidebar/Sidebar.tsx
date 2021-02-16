@@ -1,5 +1,6 @@
 import React from 'react';
 import { IGridState } from '../app/App';
+import '../sidebar/Sidebar.css';
 
 interface SidebarProps {
 	onClose?: () => void;
@@ -14,6 +15,9 @@ export const Sidebar = (props: SidebarProps) => {
 			<button className={'close-button'} onClick={props.onClose}>
 				Close
 			</button>
+			<div className={'sidebar-content'}>
+				<p className={'coming-soon-placeholder'}>Coming soon!</p>
+			</div>
 		</div>
 	);
 };
