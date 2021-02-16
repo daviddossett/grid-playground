@@ -2,8 +2,8 @@
 	"name": "grid-playground",
 	"version": "0.1.0",
 	"private": true,
+	"homepage": "https://mistople.github.io/grid-playground",
 	"dependencies": {
-		"homepage": "https://mistople.github.io/grid-playground",
 		"@testing-library/jest-dom": "^5.11.9",
 		"@testing-library/react": "^11.2.5",
 		"@testing-library/user-event": "^12.7.1",
