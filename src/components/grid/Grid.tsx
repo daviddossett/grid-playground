@@ -6,15 +6,14 @@ interface IGridProps {
 }
 
 export const Grid = (props: IGridProps) => {
-	const gridStyles = {
+	let gridStyles = {
 		display: 'grid',
 		maxWidth: '100vw',
-		overflow: 'auto',
 		gridTemplateColumns: `repeat(${props.grid.columnCount}, 1fr)`,
-		gridColumnGap: `${props.grid.columnGap}px`,
+		columnGap: `${props.grid.columnGap}px`,
 		padding: `${props.grid.paddingTopBottom}px ${props.grid.paddingLeftRight}px`,
 		gridTemplateRows: `repeat(${props.grid.rowCount}, 1fr)`,
-		gridRowGap: `${props.grid.rowGap}px`,
+		rowGap: `${props.grid.rowGap}px`,
 	};
 
 	const columnBackground = {
