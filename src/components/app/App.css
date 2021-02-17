@@ -2,6 +2,9 @@
 	height: 100%;
 	display: grid;
 	grid-template-rows: auto 1fr;
+	animation-name: fadeIn;
+	animation-timing-function: ease-in-out;
+	animation-duration: 200ms;
 }
 
 .header {
@@ -41,5 +44,14 @@
 
 	.close-button {
 		display: none;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 100%;
 	}
 }
