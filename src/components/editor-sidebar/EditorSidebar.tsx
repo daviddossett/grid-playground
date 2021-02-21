@@ -1,26 +1,26 @@
-import { IGridState } from '../app/App';
-import { TextInput } from '../text-input/TextInput';
-import '../header/Header.css';
+import React from 'react';
 import {
+	columnCount,
 	columnGap,
 	rowCount,
 	rowGap,
 	paddingTopBottom,
 	paddingLeftRight,
-	columnCount,
 } from '../../icons/icons';
+import { IGridState } from '../app/App';
+import { TextInput } from '../text-input/TextInput';
+import './EditorSidebar.css';
 
-interface HeaderProps {
+interface EditorSidebarProps {
 	gridState: IGridState;
+	onClose?: () => void;
 	onInputChange: (e: any) => void;
-	onCodeButtonClick: () => void;
-	toggleButtonText: string;
-	toggleButtonIcon: any;
+	className?: string;
 }
 
-export const Header = (props: HeaderProps) => {
+export const EditorSidebar = (props: EditorSidebarProps) => {
 	return (
-		<header className={'header'}>
+		<div className={`${props.className} editor-sidebar`}>
 			<h1>Grid Playground</h1>
 			<div className={'input-groups-wrapper'}>
 				<div className={'input-group'}>
@@ -78,10 +78,6 @@ export const Header = (props: HeaderProps) => {
 					/>
 				</div>
 			</div>
-			<button onClick={props.onCodeButtonClick}>
-				{props.toggleButtonIcon}
-				{props.toggleButtonText}
-			</button>
-		</header>
+		</div>
 	);
 };

@@ -1,45 +1,18 @@
 .app {
 	height: 100%;
 	display: grid;
-	grid-template-rows: auto 1fr;
+	grid-template-columns: 256px 1fr 320px;
+	grid-template-areas: 'editor grid code';
 }
 
-.header {
-	height: 56px;
-	border-bottom: 1px solid #e5e5e5;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 0 32px;
+.editor {
+	grid-area: 'editor';
 }
 
-.sidebar {
-	width: 320px;
-	height: 100%;
-	position: absolute;
-	right: 0;
+.grid {
+	grid-area: 'grid';
 }
 
-@media screen and (min-width: 1024px) {
-	.app {
-		grid-template-columns: 1fr auto;
-		grid-template-areas:
-			'header sidebar'
-			'main sidebar';
-	}
-
-	.main {
-		grid-area: main;
-	}
-
-	.sidebar {
-		grid-area: sidebar;
-		position: unset;
-		right: unset;
-		border-left: 1px solid #e5e5e5;
-	}
-
-	.close-button {
-		display: none;
-	}
+.code {
+	grid-area: 'code';
 }

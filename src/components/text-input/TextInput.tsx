@@ -1,12 +1,13 @@
 import '../text-input/TextInput.css';
 
 interface TextInputProps {
-	icon?: any;
-	type: string;
-	value?: string | number;
-	placeholder?: string;
 	label: string;
-	onChange?: (e: any) => void;
+	type: string;
+	onChange: (e: any) => void;
+	icon: any;
+	name: string;
+	value: string | number;
+	placeholder?: string;
 }
 
 function handleFocus(e: any) {
@@ -22,6 +23,7 @@ export const TextInput = (props: TextInputProps) => {
 			{props.icon}
 			<input
 				className={'input'}
+				name={props.name}
 				type={props.type}
 				id={props.label}
 				value={props.value}

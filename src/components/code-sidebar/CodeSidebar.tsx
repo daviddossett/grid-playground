@@ -1,28 +1,25 @@
 import React, { useLayoutEffect } from 'react';
 import { IGridState } from '../app/App';
-import '../sidebar/Sidebar.css';
+import './CodeSidebar.css';
 import Prism from 'prismjs';
 import '../../styles/prism.css';
 
 interface SidebarProps {
-	onClose?: () => void;
 	gridState: IGridState;
+	className?: string;
+	onClose?: () => void;
 }
 
-export const Sidebar = (props: SidebarProps) => {
+export const CodeSidebar = (props: SidebarProps) => {
 	useLayoutEffect(() => {
 		Prism.highlightAll();
 	});
 
 	return (
-		<div className={'sidebar'}>
-			<button className={'close-button'} onClick={props.onClose}>
-				Close
-			</button>
-			<div className={'sidebar-content'}>
+		<div className={`${props.className} code-sidebar`}>
+			<div className={'code-sidebar-content'}>
 				<header className={'sidebar-header'}>
 					<h2>Code</h2>
-					{/* <span>Copy</span> */}
 				</header>
 				<pre>
 					<code className={'language-css'}>{`/* CSS */`}</code>
