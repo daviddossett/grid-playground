@@ -6,17 +6,21 @@ import '../../styles/prism.css';
 
 interface SidebarProps {
 	gridState: IGridState;
-	className?: string;
 	onClose?: () => void;
+	className?: string;
 }
 
-export const CodeSidebar = (props: SidebarProps) => {
+export const CodeSidebar = ({
+	gridState,
+	onClose,
+	className,
+}: SidebarProps) => {
 	useLayoutEffect(() => {
 		Prism.highlightAll();
 	});
 
 	return (
-		<div className={`${props.className} code-sidebar`}>
+		<div className={`${className} code-sidebar`}>
 			<div className={'code-sidebar-content'}>
 				<header className={'sidebar-header'}>
 					<h2>Code</h2>
@@ -25,19 +29,19 @@ export const CodeSidebar = (props: SidebarProps) => {
 					<code className={'language-css'}>{`/* CSS */`}</code>
 					<br />
 					<code className={'language-css'}>
-						{`grid-template-columns: repeat(${props.gridState.columnCount}, 1fr);`}
+						{`grid-template-columns: repeat(${gridState.columnCount}, 1fr);`}
 					</code>
 					<code className={'language-css'}>
-						{`grid-column-gap: ${props.gridState.columnGap}px;`}
+						{`grid-column-gap: ${gridState.columnGap}px;`}
 					</code>
 					<code className={'language-css'}>
-						{`grid-template-rows: repeat(${props.gridState.rowCount}, 1fr);`}
+						{`grid-template-rows: repeat(${gridState.rowCount}, 1fr);`}
 					</code>
 					<code className={'language-css'}>
-						{`grid-row-gap: ${props.gridState.rowGap}px;`}
+						{`grid-row-gap: ${gridState.rowGap}px;`}
 					</code>
 					<code className={'language-css'}>
-						{`padding: ${props.gridState.paddingTopBottom}px ${props.gridState.paddingLeftRight}px;`}
+						{`padding: ${gridState.paddingTopBottom}px ${gridState.paddingLeftRight}px;`}
 					</code>
 				</pre>
 			</div>

@@ -7,29 +7,37 @@ interface TextInputProps {
 	icon: any;
 	name: string;
 	value: string | number;
-	placeholder?: string;
 }
 
 function handleFocus(e: any) {
 	e.target.select();
 }
 
-export const TextInput = (props: TextInputProps) => {
+export const TextInput = ({
+	label,
+	type,
+	onChange,
+	icon,
+	name,
+	value,
+}: TextInputProps) => {
 	return (
-		<div className={'input-with-icon'}>
-			<label aria-label={props.label} htmlFor={props.label}>
-				{props.label}
+		<>
+			<label aria-label={label} htmlFor={label}>
+				{label}
 			</label>
-			{props.icon}
-			<input
-				className={'input'}
-				name={props.name}
-				type={props.type}
-				id={props.label}
-				value={props.value}
-				onFocus={handleFocus}
-				onChange={props.onChange}
-			/>
-		</div>
+			<div className={'input-with-icon'}>
+				{icon}
+				<input
+					className={'input'}
+					name={name}
+					type={type}
+					id={label}
+					value={value}
+					onFocus={handleFocus}
+					onChange={onChange}
+				/>
+			</div>
+		</>
 	);
 };
