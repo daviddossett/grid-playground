@@ -17,7 +17,7 @@ export interface IGridState {
 }
 
 const defaultGridState: IGridState = {
-	columnCount: 4,
+	columnCount: 12,
 	columnGap: 20,
 	paddingTopBottom: 32,
 	paddingLeftRight: 32,
