@@ -1,7 +1,7 @@
 import '../editor-section/EditorSection.css';
 
 interface EditorSectionProps {
-	children: JSX.Element;
+	children: JSX.Element[] | JSX.Element;
 }
 
 export const EditorSection = ({ children }: EditorSectionProps) => {

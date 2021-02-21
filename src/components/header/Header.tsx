@@ -1,3 +1,4 @@
+import { code, grid } from '../../icons/icons';
 import '../header/Header.css';
 
 interface HeaderProps {
@@ -13,9 +14,13 @@ export const Header = ({
 }: HeaderProps) => {
 	return (
 		<header className={`${className} app-header`}>
-			<button onClick={onEditorButtonClick}>Edit grid</button>
+			<button aria-label={'Edit grid'} onClick={onEditorButtonClick}>
+				{grid}
+			</button>
 			<h1>Grid Playground</h1>
-			<button onClick={onCodeButtonClick}>View code</button>
+			<button aria-label={'View code'} onClick={onCodeButtonClick}>
+				{code}
+			</button>
 		</header>
 	);
 };

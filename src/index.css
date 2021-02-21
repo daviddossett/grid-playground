@@ -4,7 +4,7 @@
 	--theme: #fa8686;
 	--border: 1px solid #f2f2f2;
 	--header-height: 56px;
-	--input-focus-border: 2px solid #fa8686;
+	--input-focus-border: 1px solid #fa8686;
 }
 
 #root {
@@ -77,7 +77,7 @@ input {
 	border: 1px solid #e5e5e5;
 	border-radius: 6px;
 	padding: 0 10px;
-	width: 90px;
+	width: 100%;
 	box-sizing: border-box;
 }
 

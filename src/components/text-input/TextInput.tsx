@@ -22,7 +22,7 @@ export const TextInput = ({
 	value,
 }: TextInputProps) => {
 	return (
-		<>
+		<div>
 			<label aria-label={label} htmlFor={label}>
 				{label}
 			</label>
@@ -38,6 +38,6 @@ export const TextInput = ({
 					onChange={onChange}
 				/>
 			</div>
-		</>
+		</div>
 	);
 };

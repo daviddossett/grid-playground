@@ -1,8 +1,15 @@
 import React from 'react';
-import { closeIcon } from '../../icons/icons';
+import {
+	columnCount,
+	columnGap,
+	paddingLeftRight,
+	paddingTopBottom,
+	rowCount,
+	rowGap,
+} from '../../icons/icons';
 import { IGridState } from '../app/App';
 import { EditorSection } from '../editor-section/EditorSection';
-import { Header } from '../header/Header';
+import { TextInput } from '../text-input/TextInput';
 import './EditorSidebar.css';
 
 interface EditorSidebarProps {
@@ -25,12 +32,66 @@ export const EditorSidebar = ({
 			</header>
 			<EditorSection>
 				<h2>Columns</h2>
+				<div className={'input-row'}>
+					<TextInput
+						label={'Count'}
+						name={'columnCount'}
+						type={'number'}
+						icon={columnCount}
+						onChange={onInputChange}
+						value={gridState.columnCount}
+					/>
+					<TextInput
+						label={'Gap'}
+						name={'columnGap'}
+						type={'number'}
+						icon={columnGap}
+						onChange={onInputChange}
+						value={gridState.columnGap}
+					/>
+				</div>
 			</EditorSection>
 			<EditorSection>
 				<h2>Rows</h2>
+				<div className={'input-row'}>
+					<TextInput
+						label={'Count'}
+						name={'rowCount'}
+						type={'number'}
+						icon={rowCount}
+						onChange={onInputChange}
+						value={gridState.rowCount}
+					/>
+					<TextInput
+						label={'Gap'}
+						name={'rowGap'}
+						type={'number'}
+						icon={rowGap}
+						onChange={onInputChange}
+						value={gridState.rowGap}
+					/>
+				</div>
 			</EditorSection>
 			<EditorSection>
 				<h2>Grid container</h2>
+				<div className={'input-row'}>
+					<TextInput
+						label={'Top'}
+						name={'paddingTopBottom'}
+						type={'number'}
+						icon={paddingTopBottom}
+						onChange={onInputChange}
+						value={gridState.paddingTopBottom}
+					/>
+					<TextInput
+						label={'Sides'}
+						name={'paddingLeftRight'}
+						type={'number'}
+						icon={paddingLeftRight}
+						onChange={onInputChange}
+						value={gridState.paddingLeftRight}
+					/>
+				</div>
 			</EditorSection>
 		</div>
 	);
