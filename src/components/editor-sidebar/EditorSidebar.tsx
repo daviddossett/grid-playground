@@ -73,10 +73,10 @@ export const EditorSidebar = ({
 				</div>
 			</EditorSection>
 			<EditorSection>
-				<h2>Grid container</h2>
+				<h2>Grid padding</h2>
 				<div className={'input-row'}>
 					<TextInput
-						label={'Top'}
+						label={'Vertical'}
 						name={'paddingTopBottom'}
 						type={'number'}
 						icon={paddingTopBottom}
@@ -84,7 +84,7 @@ export const EditorSidebar = ({
 						value={gridState.paddingTopBottom}
 					/>
 					<TextInput
-						label={'Sides'}
+						label={'Horizontal'}
 						name={'paddingLeftRight'}
 						type={'number'}
 						icon={paddingLeftRight}
