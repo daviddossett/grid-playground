@@ -1,8 +1,6 @@
 .code-sidebar {
 	background-color: #ffffff;
 	border-left: 1px solid #e5e5e5;
-	height: 100%;
-	box-shadow: -1px 0px 8px rgba(0, 0, 0, 0.1);
 }
 
 .code-sidebar-header {
@@ -13,11 +11,6 @@
 	padding: 0 16px;
 }
 
-.code-header-actions {
-	display: flex;
-}
-
-.copy-code-button {
-	color: #fa8686;
-	margin-right: 8px;
+.code-sidebar-content {
+	padding: 16px;
 }

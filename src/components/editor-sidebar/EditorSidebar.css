@@ -1,16 +1,14 @@
 .editor-sidebar {
 	background: #ffffff;
-	width: 256px;
 	height: 100%;
 	border-right: 1px solid #e5e5e5;
-	box-shadow: 1px 0px 8px rgba(0, 0, 0, 0.1);
 }
 
 .editor-header {
 	display: none;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 800px) {
 	.editor-header {
 		height: 56px;
 		display: flex;

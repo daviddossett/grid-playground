@@ -1,4 +1,3 @@
-import { openIcon } from '../../icons/icons';
 import '../header/Header.css';
 
 interface HeaderProps {
@@ -14,9 +13,9 @@ export const Header = ({
 }: HeaderProps) => {
 	return (
 		<header className={`${className} app-header`}>
-			<button onClick={onEditorButtonClick}>{openIcon}</button>
+			<button onClick={onEditorButtonClick}>Edit grid</button>
 			<h1>Grid Playground</h1>
-			<button onClick={onCodeButtonClick}>{openIcon}</button>
+			<button onClick={onCodeButtonClick}>View code</button>
 		</header>
 	);
 };

@@ -14,9 +14,6 @@
 
 .editor {
 	grid-area: editor;
-	position: absolute;
-	left: 0;
-	top: 0;
 }
 
 .grid {
@@ -25,13 +22,12 @@
 
 .code {
 	grid-area: code;
-	position: absolute;
-	right: 0;
-	top: 0;
 }
 
 @media screen and (min-width: 1024px) {
-	.app-header-main {
-		display: none;
+	.app {
+		grid-template-columns: 256px 1fr 320px;
+		grid-template-rows: 1fr;
+		grid-template-areas: 'editor main code';
 	}
 }

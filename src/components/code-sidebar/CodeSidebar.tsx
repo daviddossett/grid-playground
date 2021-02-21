@@ -26,21 +26,10 @@ export const CodeSidebar = ({
 
 	return (
 		<div className={`${className} code-sidebar`}>
+			<header className={'code-sidebar-header'}>
+				<h2>Code</h2>
+			</header>
 			<div className={'code-sidebar-content'}>
-				<header className={'code-sidebar-header'}>
-					<h2>Code</h2>
-					<div className={'code-header-actions'}>
-						<button
-							onClick={handleCodeCopyClick}
-							className={'copy-code-button'}
-						>
-							Copy
-						</button>
-						<button onClick={onClose} className={'close-button'}>
-							{closeIcon}
-						</button>
-					</div>
-				</header>
 				<pre>
 					<code className={'language-css'}>{`/* CSS */`}</code>
 					<br />

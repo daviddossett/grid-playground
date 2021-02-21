@@ -5,6 +5,7 @@ import './App.css';
 import { EditorSidebar } from '../editor-sidebar/EditorSidebar';
 import { Header } from '../header/Header';
 import { useMediaQuery } from 'react-responsive';
+import { breakpoint } from '../../styles/breakpoints';
 
 export interface IGridState {
 	columnCount: number;
@@ -24,11 +25,11 @@ const defaultGridState: IGridState = {
 	rowGap: 20,
 };
 
-function App() {
+export const App = () => {
 	const [isCodeSidebarVisible, setIsCodeSidebarVisible] = useState(false);
 	const [isEditorSidebarVisible, setIsEditorSidebarVisible] = useState(false);
 	const [gridState, setGridState] = useState(defaultGridState);
-	const isLargeScreen = useMediaQuery({ minWidth: 1024 });
+	const isLargeScreen = useMediaQuery({ minWidth: breakpoint.large });
 
 	function toggleCodeSidebar() {
 		setIsCodeSidebarVisible(!isCodeSidebarVisible);
@@ -53,24 +54,14 @@ function App() {
 					onEditorButtonClick={toggleEditorSidebar}
 				/>
 			)}
-			{isEditorSidebarVisible && (
+			{isLargeScreen && (
 				<EditorSidebar
-					className={'editor'}
 					gridState={gridState}
 					onInputChange={handleInputChange}
-					onClose={toggleEditorSidebar}
 				/>
 			)}
 			<Grid className={'grid'} grid={gridState} />
-			{isCodeSidebarVisible && (
-				<CodeSidebar
-					className={'code'}
-					gridState={gridState}
-					onClose={toggleCodeSidebar}
-				/>
-			)}
+			{isLargeScreen && <CodeSidebar gridState={gridState} />}
 		</div>
 	);
-}
-
-export default App;
+};
