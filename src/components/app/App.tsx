@@ -45,6 +45,34 @@ export const App = () => {
 		setGridState({ ...gridState, [name]: value });
 	}
 
+	const EditorWithOverlay = (
+		<div className={'overlay-container'}>
+			<EditorSidebar
+				gridState={gridState}
+				onInputChange={handleInputChange}
+				className={'overlay-editor'}
+			/>
+			<div className={'overlay'} onClick={toggleEditorSidebar} />
+		</div>
+	);
+
+	const Editor = (
+		<EditorSidebar
+			gridState={gridState}
+			onInputChange={handleInputChange}
+			className={'editor'}
+		/>
+	);
+
+	const CodeWithOverlay = (
+		<div className={'overlay-container'}>
+			<CodeSidebar gridState={gridState} className={'overlay-code'} />
+			<div className={'overlay'} onClick={toggleCodeSidebar} />
+		</div>
+	);
+
+	const Code = <CodeSidebar gridState={gridState} className={'code'} />;
+
 	return (
 		<div className={'app'}>
 			{!isLargeScreen && (
@@ -54,14 +82,9 @@ export const App = () => {
 					onEditorButtonClick={toggleEditorSidebar}
 				/>
 			)}
-			{isLargeScreen && (
-				<EditorSidebar
-					gridState={gridState}
-					onInputChange={handleInputChange}
-				/>
-			)}
+			{!isLargeScreen && isEditorSidebarVisible ? EditorWithOverlay : Editor}
 			<Grid className={'grid'} grid={gridState} />
-			{isLargeScreen && <CodeSidebar gridState={gridState} />}
+			{!isLargeScreen && isCodeSidebarVisible ? CodeWithOverlay : Code}
 		</div>
 	);
 };
