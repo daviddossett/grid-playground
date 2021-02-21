@@ -73,7 +73,7 @@ export const EditorSidebar = ({
 				</div>
 			</EditorSection>
 			<EditorSection>
-				<h2>Grid padding</h2>
+				<h2>Container</h2>
 				<div className={'input-row'}>
 					<TextInput
 						label={'Vertical'}
