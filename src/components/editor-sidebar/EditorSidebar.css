@@ -1,4 +1,7 @@
 .editor-sidebar {
-	padding: 16px;
 	border-right: 1px solid #e5e5e5;
+}
+
+.app-title {
+	padding: 16px;
 }
