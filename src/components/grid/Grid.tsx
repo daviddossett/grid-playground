@@ -38,8 +38,8 @@ export const Grid = (props: IGridProps) => {
 	const columns = generateColumns(props.grid.rowCount, props.grid.columnCount);
 
 	return (
-		<div style={gridStyles} className={props.className}>
+		<main style={gridStyles} className={props.className}>
 			{columns}
-		</div>
+		</main>
 	);
 };

@@ -3,6 +3,7 @@ import { IGridState } from '../app/App';
 import './CodeSidebar.css';
 import Prism from 'prismjs';
 import '../../styles/prism.css';
+import { closeIcon } from '../../icons/icons';
 
 interface SidebarProps {
 	gridState: IGridState;
@@ -19,11 +20,26 @@ export const CodeSidebar = ({
 		Prism.highlightAll();
 	});
 
+	function handleCodeCopyClick() {
+		console.log('Copied the code');
+	}
+
 	return (
 		<div className={`${className} code-sidebar`}>
 			<div className={'code-sidebar-content'}>
-				<header className={'sidebar-header'}>
+				<header className={'code-sidebar-header'}>
 					<h2>Code</h2>
+					<div className={'code-header-actions'}>
+						<button
+							onClick={handleCodeCopyClick}
+							className={'copy-code-button'}
+						>
+							Copy
+						</button>
+						<button onClick={onClose} className={'close-button'}>
+							{closeIcon}
+						</button>
+					</div>
 				</header>
 				<pre>
 					<code className={'language-css'}>{`/* CSS */`}</code>

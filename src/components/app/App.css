@@ -1,18 +1,37 @@
 .app {
 	height: 100%;
 	display: grid;
-	grid-template-columns: 256px 1fr 320px;
-	grid-template-areas: 'editor grid code';
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr;
+	grid-template-areas:
+		'header'
+		'main';
+}
+
+.app-header-main {
+	grid-area: header;
 }
 
 .editor {
-	grid-area: 'editor';
+	grid-area: editor;
+	position: absolute;
+	left: 0;
+	top: 0;
 }
 
 .grid {
-	grid-area: 'grid';
+	grid-area: main;
 }
 
 .code {
-	grid-area: 'code';
+	grid-area: code;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+@media screen and (min-width: 1024px) {
+	.app-header-main {
+		display: none;
+	}
 }

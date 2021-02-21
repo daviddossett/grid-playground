@@ -3,6 +3,8 @@ import { Grid } from '../grid/Grid';
 import { CodeSidebar } from '../code-sidebar/CodeSidebar';
 import './App.css';
 import { EditorSidebar } from '../editor-sidebar/EditorSidebar';
+import { Header } from '../header/Header';
+import { useMediaQuery } from 'react-responsive';
 
 export interface IGridState {
 	columnCount: number;
@@ -23,9 +25,10 @@ const defaultGridState: IGridState = {
 };
 
 function App() {
-	const [isCodeSidebarVisible, setIsCodeSidebarVisible] = useState(true);
-	const [isEditorSidebarVisible, setIsEditorSidebarVisible] = useState(true);
+	const [isCodeSidebarVisible, setIsCodeSidebarVisible] = useState(false);
+	const [isEditorSidebarVisible, setIsEditorSidebarVisible] = useState(false);
 	const [gridState, setGridState] = useState(defaultGridState);
+	const isLargeScreen = useMediaQuery({ minWidth: 1024 });
 
 	function toggleCodeSidebar() {
 		setIsCodeSidebarVisible(!isCodeSidebarVisible);
@@ -43,6 +46,13 @@ function App() {
 
 	return (
 		<div className={'app'}>
+			{!isLargeScreen && (
+				<Header
+					className={'app-header-main'}
+					onCodeButtonClick={toggleCodeSidebar}
+					onEditorButtonClick={toggleEditorSidebar}
+				/>
+			)}
 			{isEditorSidebarVisible && (
 				<EditorSidebar
 					className={'editor'}
