@@ -32,7 +32,7 @@ export const EditorSidebar = ({
 				<h2>Columns</h2>
 				<div className={'input-row'}>
 					<TextInput
-						label={'Count'}
+						label={'Column count'}
 						name={'columnCount'}
 						type={'number'}
 						icon={columnCount}
