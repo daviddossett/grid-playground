@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/grid-playground/static/css/main.aab181fb.chunk.css",
+    "main.css": "/grid-playground/static/css/main.345bf538.chunk.css",
     "main.js": "/grid-playground/static/js/main.707e28bc.chunk.js",
     "main.js.map": "/grid-playground/static/js/main.707e28bc.chunk.js.map",
     "runtime-main.js": "/grid-playground/static/js/runtime-main.9664f25d.js",
@@ -10,13 +10,13 @@
     "static/js/3.818110a3.chunk.js": "/grid-playground/static/js/3.818110a3.chunk.js",
     "static/js/3.818110a3.chunk.js.map": "/grid-playground/static/js/3.818110a3.chunk.js.map",
     "index.html": "/grid-playground/index.html",
-    "static/css/main.aab181fb.chunk.css.map": "/grid-playground/static/css/main.aab181fb.chunk.css.map",
+    "static/css/main.345bf538.chunk.css.map": "/grid-playground/static/css/main.345bf538.chunk.css.map",
     "static/js/2.4456f6a6.chunk.js.LICENSE.txt": "/grid-playground/static/js/2.4456f6a6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9664f25d.js",
     "static/js/2.4456f6a6.chunk.js",
-    "static/css/main.aab181fb.chunk.css",
+    "static/css/main.345bf538.chunk.css",
     "static/js/main.707e28bc.chunk.js"
   ]
 }
