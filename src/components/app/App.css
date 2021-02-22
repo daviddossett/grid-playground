@@ -44,12 +44,12 @@
 }
 
 .overlay-editor {
-	width: 280px;
+	width: 300px;
 	z-index: 3;
 }
 
 .overlay-code {
-	width: 280px;
+	width: 300px;
 	position: fixed;
 	height: 100%;
 	z-index: 3;
