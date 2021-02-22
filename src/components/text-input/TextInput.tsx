@@ -7,6 +7,7 @@ interface TextInputProps {
 	icon: any;
 	name: string;
 	value: string | number;
+	ariaLabel?: string;
 }
 
 function handleFocus(e: any) {
@@ -20,6 +21,7 @@ export const TextInput = ({
 	icon,
 	name,
 	value,
+	ariaLabel,
 }: TextInputProps) => {
 	return (
 		<div>
@@ -32,6 +34,7 @@ export const TextInput = ({
 					className={'input'}
 					name={name}
 					type={type}
+					aria-label={ariaLabel}
 					id={label}
 					value={value}
 					onFocus={handleFocus}
