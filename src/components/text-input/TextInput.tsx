@@ -21,7 +21,6 @@ export const TextInput = ({
 	icon,
 	name,
 	value,
-	ariaLabel,
 }: TextInputProps) => {
 	return (
 		<div>
@@ -34,7 +33,6 @@ export const TextInput = ({
 					className={'input'}
 					name={name}
 					type={type}
-					aria-label={ariaLabel}
 					id={label}
 					value={value}
 					onFocus={handleFocus}
