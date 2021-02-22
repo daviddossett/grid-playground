@@ -40,7 +40,7 @@ export const EditorSidebar = ({
 						value={gridState.columnCount}
 					/>
 					<TextInput
-						label={'Gap'}
+						label={'Column gap'}
 						name={'columnGap'}
 						type={'number'}
 						icon={columnGap}
@@ -53,7 +53,7 @@ export const EditorSidebar = ({
 				<h2>Rows</h2>
 				<div className={'input-row'}>
 					<TextInput
-						label={'Count'}
+						label={'Row count'}
 						name={'rowCount'}
 						type={'number'}
 						icon={rowCount}
@@ -61,7 +61,7 @@ export const EditorSidebar = ({
 						value={gridState.rowCount}
 					/>
 					<TextInput
-						label={'Gap'}
+						label={'Row gap'}
 						name={'rowGap'}
 						type={'number'}
 						icon={rowGap}
