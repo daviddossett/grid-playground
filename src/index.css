@@ -70,8 +70,8 @@ input {
 	height: 32px;
 	font: unset;
 	font-family: 'Inter';
-	font-weight: 400;
-	font-size: 16px;
+	font-weight: 500;
+	font-size: 1em;
 	color: var(--text-color);
 	letter-spacing: -0.02em;
 	border: 1px solid #e5e5e5;
@@ -95,7 +95,7 @@ input::-webkit-inner-spin-button {
 
 textarea,
 input[type='text'],
-input[type='number'] {
+input[type=] {
 	-webkit-appearance: none;
 }
 
@@ -131,4 +131,10 @@ button:focus {
 
 button:active {
 	background-color: #e5e5e5;
+}
+
+@media screen and (min-width: 1024px) {
+	input {
+		font-size: 0.875em;
+	}
 }
