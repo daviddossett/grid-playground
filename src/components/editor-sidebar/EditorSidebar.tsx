@@ -33,7 +33,6 @@ export const EditorSidebar = ({
 				<div className={'input-row'}>
 					<TextInput
 						label={'Count'}
-						ariaLabel={'Column count'}
 						name={'columnCount'}
 						type={'number'}
 						icon={columnCount}
@@ -42,7 +41,6 @@ export const EditorSidebar = ({
 					/>
 					<TextInput
 						label={'Gap'}
-						ariaLabel={'Column gap'}
 						name={'columnGap'}
 						type={'number'}
 						icon={columnGap}
@@ -56,7 +54,6 @@ export const EditorSidebar = ({
 				<div className={'input-row'}>
 					<TextInput
 						label={'Count'}
-						ariaLabel={'Row count'}
 						name={'rowCount'}
 						type={'number'}
 						icon={rowCount}
@@ -65,7 +62,6 @@ export const EditorSidebar = ({
 					/>
 					<TextInput
 						label={'Gap'}
-						ariaLabel={'Row gap'}
 						name={'rowGap'}
 						type={'number'}
 						icon={rowGap}
