@@ -7,6 +7,12 @@ import { Header } from '../header/Header';
 import { useMediaQuery } from 'react-responsive';
 import { breakpoint } from '../../styles/breakpoints';
 
+declare global {
+	interface Window {
+		analytics: any;
+	}
+}
+
 export interface IGridState {
 	columnCount: number;
 	columnGap: number;
@@ -33,16 +39,21 @@ export const App = () => {
 
 	function toggleCodeSidebar() {
 		setIsCodeSidebarVisible(!isCodeSidebarVisible);
+		window.analytics.track('Toggled code sidebar', { isCodeSidebarVisible });
 	}
 
 	function toggleEditorSidebar() {
 		setIsEditorSidebarVisible(!isEditorSidebarVisible);
+		window.analytics.track('Toggled editor sidebar', {
+			isEditorSidebarVisible,
+		});
 	}
 
 	function handleInputChange(e: any) {
 		const name = e.target.name;
 		const value = e.target.value;
 		setGridState({ ...gridState, [name]: value });
+		window.analytics.track(`Change ${name}`, { value });
 	}
 
 	const EditorWithOverlay = (
