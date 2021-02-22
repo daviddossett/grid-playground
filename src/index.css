@@ -94,7 +94,8 @@ input::-webkit-inner-spin-button {
 }
 
 textarea,
-input[type='text'] {
+input[type='text'],
+input[type='number'] {
 	-webkit-appearance: none;
 }
 
