@@ -6,17 +6,18 @@ label {
 .input-with-icon {
 	cursor: text;
 	position: relative;
+	margin-top: 4px;
 }
 
 .input {
 	display: flex;
 	align-items: center;
-	padding: 0 8px 0 36px;
+	padding: 0 8px 0 32px;
 }
 
 .icon {
 	position: absolute;
 	top: 6px;
-	left: 12px;
+	left: 8px;
 	pointer-events: none;
 }

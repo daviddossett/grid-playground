@@ -14,14 +14,12 @@ import './EditorSidebar.css';
 
 interface EditorSidebarProps {
 	gridState: IGridState;
-	onClose?: () => void;
 	onInputChange: (e: any) => void;
 	className?: string;
 }
 
 export const EditorSidebar = ({
 	gridState,
-	onClose,
 	onInputChange,
 	className,
 }: EditorSidebarProps) => {

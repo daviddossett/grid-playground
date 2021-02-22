@@ -70,7 +70,7 @@ input {
 	height: 32px;
 	font: unset;
 	font-family: 'Inter';
-	font-weight: 600;
+	font-weight: 500;
 	font-size: 0.875em;
 	color: var(--text-color);
 	letter-spacing: -0.02em;
@@ -91,6 +91,11 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
+}
+
+textarea,
+input[type='text'] {
+	-webkit-appearance: none;
 }
 
 /* Firefox */
