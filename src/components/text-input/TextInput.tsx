@@ -31,6 +31,7 @@ export const TextInput = ({
 				{icon}
 				<input
 					className={'input'}
+					pattern={'[0-9]*'}
 					name={name}
 					type={type}
 					id={label}
