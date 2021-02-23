@@ -44,7 +44,7 @@ export const CodeSidebar = ({ gridState, className }: SidebarProps) => {
 	return (
 		<div className={`${className} code-sidebar`}>
 			<header className={'code-sidebar-header'}>
-				<h2>CSS</h2>
+				<h2 className={'code-sidebar-title'}>CSS</h2>
 				<button className={'copy-code-button'} onClick={handleCodeCopyClick}>
 					{buttonText}
 				</button>

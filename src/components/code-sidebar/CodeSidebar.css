@@ -11,6 +11,11 @@
 	padding: 0 16px;
 }
 
+.code-sidebar-title {
+	font-size: 1em;
+	line-height: 1em;
+}
+
 .code-sidebar-content {
 	padding: 0 16px;
 }
