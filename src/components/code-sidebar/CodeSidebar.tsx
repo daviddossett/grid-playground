@@ -38,6 +38,7 @@ export const CodeSidebar = ({ gridState, className }: SidebarProps) => {
 		el.select();
 		document.execCommand('copy');
 		document.body.removeChild(el);
+		window.analytics.track('Copied the code', { codeSnippet });
 	}
 
 	return (
