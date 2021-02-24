@@ -27,7 +27,7 @@ const defaultGridState: IGridState = {
 	columnGap: 20,
 	paddingTopBottom: 32,
 	paddingLeftRight: 32,
-	rowCount: 1,
+	rowCount: 2,
 	rowGap: 20,
 };
 
