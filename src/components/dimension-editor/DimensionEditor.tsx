@@ -4,14 +4,25 @@ import '../dimension-editor/DimensionEditor.css';
 
 interface DimensionEditorProps {
 	title: string;
+	onAddButtonPress: () => void;
+	onDeleteButtonPress: () => void;
 }
 
-export const DimensionEditor = ({ title }: DimensionEditorProps) => {
+export const DimensionEditor = ({
+	title,
+	onAddButtonPress,
+	onDeleteButtonPress,
+}: DimensionEditorProps) => {
 	return (
 		<EditorSection>
 			<div className={'editor-section-header'}>
 				<h2>{title}</h2>
-				<button className={'editor-section-add-button'}>{add}</button>
+				<button
+					onClick={onAddButtonPress}
+					className={'editor-section-add-button'}
+				>
+					{add}
+				</button>
 			</div>
 		</EditorSection>
 	);
