@@ -8,13 +8,6 @@
 	display: none;
 }
 
-.input-row {
-	display: grid;
-	grid-auto-flow: column;
-	grid-template-columns: auto;
-	column-gap: 12px;
-}
-
 @media screen and (min-width: 800px) {
 	.editor-header {
 		height: 56px;

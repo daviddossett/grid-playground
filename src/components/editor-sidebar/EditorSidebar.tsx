@@ -8,9 +8,8 @@ import {
 	rowGap,
 } from '../../icons/icons';
 import { IGridState } from '../app/App';
+import { ContainerEditor } from '../container-editor/ContainerEditor';
 import { DimensionEditor } from '../dimension-editor/DimensionEditor';
-import { EditorSection } from '../editor-section/EditorSection';
-import { TextInput } from '../text-input/TextInput';
 import './EditorSidebar.css';
 
 interface EditorSidebarProps {
@@ -31,27 +30,7 @@ export const EditorSidebar = ({
 			</header>
 			<DimensionEditor title={'Columns'} />
 			<DimensionEditor title={'Rows'} />
-			<EditorSection>
-				<h2>Container</h2>
-				<div className={'input-row'}>
-					<TextInput
-						label={'Vertical'}
-						name={'paddingTopBottom'}
-						type={'number'}
-						icon={paddingTopBottom}
-						onChange={onInputChange}
-						value={gridState.paddingTopBottom}
-					/>
-					<TextInput
-						label={'Horizontal'}
-						name={'paddingLeftRight'}
-						type={'number'}
-						icon={paddingLeftRight}
-						onChange={onInputChange}
-						value={gridState.paddingLeftRight}
-					/>
-				</div>
-			</EditorSection>
+			<ContainerEditor onInputChange={onInputChange} gridState={gridState} />
 		</div>
 	);
 };
