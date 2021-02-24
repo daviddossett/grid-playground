@@ -8,6 +8,7 @@ import {
 	rowGap,
 } from '../../icons/icons';
 import { IGridState } from '../app/App';
+import { DimensionEditor } from '../dimension-editor/DimensionEditor';
 import { EditorSection } from '../editor-section/EditorSection';
 import { TextInput } from '../text-input/TextInput';
 import './EditorSidebar.css';
@@ -28,48 +29,8 @@ export const EditorSidebar = ({
 			<header className={'editor-header'}>
 				<h1>Grid Playground</h1>
 			</header>
-			<EditorSection>
-				<h2>Columns</h2>
-				<div className={'input-row'}>
-					<TextInput
-						label={'Count'}
-						name={'columnCount'}
-						type={'number'}
-						icon={columnCount}
-						onChange={onInputChange}
-						value={gridState.columnCount}
-					/>
-					<TextInput
-						label={'Gap'}
-						name={'columnGap'}
-						type={'number'}
-						icon={columnGap}
-						onChange={onInputChange}
-						value={gridState.columnGap}
-					/>
-				</div>
-			</EditorSection>
-			<EditorSection>
-				<h2>Rows</h2>
-				<div className={'input-row'}>
-					<TextInput
-						label={'Count'}
-						name={'rowCount'}
-						type={'number'}
-						icon={rowCount}
-						onChange={onInputChange}
-						value={gridState.rowCount}
-					/>
-					<TextInput
-						label={'Gap'}
-						name={'rowGap'}
-						type={'number'}
-						icon={rowGap}
-						onChange={onInputChange}
-						value={gridState.rowGap}
-					/>
-				</div>
-			</EditorSection>
+			<DimensionEditor title={'Columns'} />
+			<DimensionEditor title={'Rows'} />
 			<EditorSection>
 				<h2>Container</h2>
 				<div className={'input-row'}>
