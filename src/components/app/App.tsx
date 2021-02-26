@@ -25,14 +25,14 @@ enum TrackMode {
 }
 
 interface IColumn {
-	id: number;
-	widthValue: string;
+	id: string;
+	widthValue: number;
 	widthMode: TrackMode;
 }
 
 interface IRow {
-	id: number;
-	heightValue: string;
+	id: string;
+	heightValue: number;
 	heightMode: TrackMode;
 }
 
@@ -47,26 +47,36 @@ export interface IGridState {
 
 const defaultColumns: IColumn[] = [
 	{
-		id: 0,
-		widthValue: '1',
+		id: '0',
+		widthValue: 1,
 		widthMode: TrackMode.fr,
 	},
 	{
-		id: 1,
-		widthValue: '1',
+		id: '1',
+		widthValue: 2,
+		widthMode: TrackMode.fr,
+	},
+	{
+		id: '2',
+		widthValue: 3,
+		widthMode: TrackMode.fr,
+	},
+	{
+		id: '3',
+		widthValue: 4,
 		widthMode: TrackMode.fr,
 	},
 ];
 
 const defaultRows: IRow[] = [
 	{
-		id: 0,
-		heightValue: '1',
+		id: '0',
+		heightValue: 1,
 		heightMode: TrackMode.fr,
 	},
 	{
-		id: 1,
-		heightValue: '1',
+		id: '1',
+		heightValue: 1,
 		heightMode: TrackMode.fr,
 	},
 ];
@@ -110,10 +120,31 @@ export const App = () => {
 		setGridState({ ...gridState, [name]: value });
 	}
 
+	function handleAddColumn() {
+		const newColumn: IColumn = {
+			id: (gridState.columns.length + 1).toString(),
+			widthMode: TrackMode.fr,
+			widthValue: 1,
+		};
+		setGridState({
+			...gridState,
+			columns: [...gridState.columns, newColumn],
+		});
+	}
+
+	function handleDeleteColumn(e: any) {
+		const columnIdToDelete = e.target.id;
+		// Create a new array of columns without the column containing the id above
+		// Set the gridState's columns to that new array of columns
+		// Profit
+	}
+
 	const EditorWithOverlay = (
 		<div className={'overlay-container'}>
 			<EditorSidebar
 				gridState={gridState}
+				onAddColumn={handleAddColumn}
+				onDeleteColumn={handleDeleteColumn}
 				onGapChange={handleGapChange}
 				onPaddingChange={handlePaddingChange}
 				className={'overlay-editor'}
@@ -125,6 +156,8 @@ export const App = () => {
 	const Editor = (
 		<EditorSidebar
 			gridState={gridState}
+			onAddColumn={handleAddColumn}
+			onDeleteColumn={handleDeleteColumn}
 			onGapChange={handleGapChange}
 			onPaddingChange={handlePaddingChange}
 			className={'editor'}

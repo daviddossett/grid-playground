@@ -7,6 +7,8 @@ import './EditorSidebar.css';
 
 interface EditorSidebarProps {
 	gridState: IGridState;
+	onAddColumn: () => void;
+	onDeleteColumn: (e: any) => void;
 	onGapChange: (e: any) => void;
 	onPaddingChange: (e: any) => void;
 	className?: string;
@@ -14,6 +16,8 @@ interface EditorSidebarProps {
 
 export const EditorSidebar = ({
 	gridState,
+	onAddColumn,
+	onDeleteColumn,
 	onGapChange,
 	onPaddingChange,
 	className,
@@ -23,7 +27,11 @@ export const EditorSidebar = ({
 			<header className={'editor-header'}>
 				<h1>Grid Playground</h1>
 			</header>
-			{/* <ColumnEditor onInputChange={onInputChange} gridState={gridState} /> */}
+			<ColumnEditor
+				gridState={gridState}
+				onAddColumn={onAddColumn}
+				onDeleteColumn={onDeleteColumn}
+			/>
 			<GapEditor onGapChange={onGapChange} gridState={gridState} />
 			<ContainerEditor
 				onPaddingChange={onPaddingChange}

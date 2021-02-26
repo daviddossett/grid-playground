@@ -1,35 +1,34 @@
+import { subtract } from '../../icons/icons';
+import '../input-group/InputGroup.css';
+
 interface InputGroupProps {
-	label: string;
-	name: string;
+	name?: string;
 	value: number;
-	placeholder?: string;
-	onChange: (e: any) => void;
+	id: string;
+	onDelete: (e: any) => void;
 }
 
 function handleFocus(e: any) {
 	e.target.select();
 }
 
-export const InputGroup = ({
-	label,
-	name,
-	value,
-	placeholder,
-	onChange,
-}: InputGroupProps) => {
+export const InputGroup = ({ name, value, onDelete, id }: InputGroupProps) => {
 	return (
-		<div>
-			<label htmlFor={label}>{label}</label>
+		<div className={'input-group-row'}>
 			<input
 				type={'number'}
-				id={'label'}
 				pattern={'[0-9]*'}
 				name={name}
 				value={value}
-				// placeholder={placeholder}
-				onChange={onChange}
 				onFocus={handleFocus}
 			/>
+			<button
+				onClick={onDelete}
+				id={id}
+				className={'editor-section-add-button'}
+			>
+				{subtract}
+			</button>
 		</div>
 	);
 };
