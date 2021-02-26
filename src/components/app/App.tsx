@@ -13,22 +13,71 @@ declare global {
 	}
 }
 
+enum TrackMode {
+	fr = 'fr',
+	px = 'px',
+	percent = '%',
+	em = 'em',
+	auto = 'auto',
+	minContent = 'min-content',
+	maxContent = 'max-content',
+	minmax = 'minmax',
+}
+
+interface IColumn {
+	id: number;
+	widthValue: string;
+	widthMode: TrackMode;
+}
+
+interface IRow {
+	id: number;
+	heightValue: string;
+	heightMode: TrackMode;
+}
+
 export interface IGridState {
-	columnCount: number;
-	columnGap: number;
+	columns: IColumn[];
+	rows: IRow[];
 	paddingTopBottom: number;
 	paddingLeftRight: number;
-	rowCount: number;
+	columnGap: number;
 	rowGap: number;
 }
 
+const defaultColumns: IColumn[] = [
+	{
+		id: 0,
+		widthValue: '1',
+		widthMode: TrackMode.fr,
+	},
+	{
+		id: 1,
+		widthValue: '1',
+		widthMode: TrackMode.fr,
+	},
+];
+
+const defaultRows: IRow[] = [
+	{
+		id: 0,
+		heightValue: '1',
+		heightMode: TrackMode.fr,
+	},
+	{
+		id: 1,
+		heightValue: '1',
+		heightMode: TrackMode.fr,
+	},
+];
+
 const defaultGridState: IGridState = {
-	columnCount: 4,
-	columnGap: 20,
+	columns: defaultColumns,
+	rows: defaultRows,
 	paddingTopBottom: 32,
 	paddingLeftRight: 32,
-	rowCount: 2,
-	rowGap: 20,
+	columnGap: 16,
+	rowGap: 16,
 };
 
 export const App = () => {
@@ -49,18 +98,24 @@ export const App = () => {
 		});
 	}
 
-	function handleInputChange(e: any) {
+	function handleGapChange(e: any) {
 		const name = e.target.name;
 		const value = e.target.value;
 		setGridState({ ...gridState, [name]: value });
-		window.analytics.track(`Change ${name}`, { value });
+	}
+
+	function handlePaddingChange(e: any) {
+		const name = e.target.name;
+		const value = e.target.value;
+		setGridState({ ...gridState, [name]: value });
 	}
 
 	const EditorWithOverlay = (
 		<div className={'overlay-container'}>
 			<EditorSidebar
 				gridState={gridState}
-				onInputChange={handleInputChange}
+				onGapChange={handleGapChange}
+				onPaddingChange={handlePaddingChange}
 				className={'overlay-editor'}
 			/>
 			<div className={'overlay'} onClick={toggleEditorSidebar} />
@@ -70,7 +125,8 @@ export const App = () => {
 	const Editor = (
 		<EditorSidebar
 			gridState={gridState}
-			onInputChange={handleInputChange}
+			onGapChange={handleGapChange}
+			onPaddingChange={handlePaddingChange}
 			className={'editor'}
 		/>
 	);

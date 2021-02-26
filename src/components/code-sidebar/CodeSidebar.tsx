@@ -16,9 +16,7 @@ export const CodeSidebar = ({ gridState, className }: SidebarProps) => {
 	});
 
 	const codeSnippet = `.grid-container { 
-  grid-template-columns: repeat(${gridState.columnCount}, 1fr);
   grid-column-gap: ${gridState.columnGap}px;
-  grid-template-rows: repeat(${gridState.rowCount}, 1fr);
   grid-row-gap: ${gridState.rowGap}px;
   padding: ${gridState.paddingTopBottom}px ${gridState.paddingLeftRight}px; 
 }`;

@@ -6,11 +6,11 @@ import { TextInput } from '../text-input/TextInput';
 import '../gap-editor/GapEditor.css';
 
 interface GapEditorProps {
-	onInputChange: (e: any) => void;
+	onGapChange: (e: any) => void;
 	gridState: IGridState;
 }
 
-export const GapEditor = ({ onInputChange, gridState }: GapEditorProps) => {
+export const GapEditor = ({ onGapChange, gridState }: GapEditorProps) => {
 	return (
 		<EditorSection>
 			<h2>Gaps</h2>
@@ -20,7 +20,7 @@ export const GapEditor = ({ onInputChange, gridState }: GapEditorProps) => {
 					name={'columnGap'}
 					type={'number'}
 					icon={columnGap}
-					onChange={onInputChange}
+					onChange={onGapChange}
 					value={gridState.columnGap}
 				/>
 				<TextInput
@@ -28,7 +28,7 @@ export const GapEditor = ({ onInputChange, gridState }: GapEditorProps) => {
 					name={'rowGap'}
 					type={'number'}
 					icon={rowGap}
-					onChange={onInputChange}
+					onChange={onGapChange}
 					value={gridState.rowGap}
 				/>
 			</div>

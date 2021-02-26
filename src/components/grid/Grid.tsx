@@ -9,10 +9,10 @@ export const Grid = (props: IGridProps) => {
 	let gridStyles = {
 		display: 'grid',
 		maxWidth: '100vw',
-		gridTemplateColumns: `repeat(${props.grid.columnCount}, 1fr)`,
+		gridTemplateColumns: `repeat(2, 1fr)`,
 		columnGap: `${props.grid.columnGap}px`,
 		padding: `${props.grid.paddingTopBottom}px ${props.grid.paddingLeftRight}px`,
-		gridTemplateRows: `repeat(${props.grid.rowCount}, 1fr)`,
+		gridTemplateRows: `repeat(2, 1fr)`,
 		rowGap: `${props.grid.rowGap}px`,
 	};
 
@@ -35,7 +35,7 @@ export const Grid = (props: IGridProps) => {
 		return rows;
 	}
 
-	const columns = generateColumns(props.grid.rowCount, props.grid.columnCount);
+	const columns = generateColumns(2, 2);
 
 	return (
 		<main style={gridStyles} className={props.className}>

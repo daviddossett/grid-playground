@@ -2,18 +2,14 @@ import React from 'react';
 import { add, rowGap } from '../../icons/icons';
 import { IGridState } from '../app/App';
 import { EditorSection } from '../editor-section/EditorSection';
-import { TextInput } from '../text-input/TextInput';
+import { InputGroup } from '../input-group/InputGroup';
 import './ColumnEditor.css';
 
 interface ColumnEditorProps {
 	gridState: IGridState;
-	onInputChange: (e: any) => void;
 }
 
-export const ColumnEditor = ({
-	gridState,
-	onInputChange,
-}: ColumnEditorProps) => {
+export const ColumnEditor = ({ gridState }: ColumnEditorProps) => {
 	function handleAddColumnPress() {
 		alert('Clicked add column');
 	}

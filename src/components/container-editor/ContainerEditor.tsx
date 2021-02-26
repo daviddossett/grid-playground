@@ -6,12 +6,12 @@ import { TextInput } from '../text-input/TextInput';
 import '../container-editor/ContainerEditor.css';
 
 interface ContainerEditorProps {
-	onInputChange: (e: any) => void;
+	onPaddingChange: (e: any) => void;
 	gridState: IGridState;
 }
 
 export const ContainerEditor = ({
-	onInputChange,
+	onPaddingChange,
 	gridState,
 }: ContainerEditorProps) => {
 	return (
@@ -23,7 +23,7 @@ export const ContainerEditor = ({
 					name={'paddingTopBottom'}
 					type={'number'}
 					icon={paddingTopBottom}
-					onChange={onInputChange}
+					onChange={onPaddingChange}
 					value={gridState.paddingTopBottom}
 				/>
 				<TextInput
@@ -31,7 +31,7 @@ export const ContainerEditor = ({
 					name={'paddingLeftRight'}
 					type={'number'}
 					icon={paddingLeftRight}
-					onChange={onInputChange}
+					onChange={onPaddingChange}
 					value={gridState.paddingLeftRight}
 				/>
 			</div>

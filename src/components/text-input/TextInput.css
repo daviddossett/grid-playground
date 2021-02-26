@@ -4,6 +4,44 @@ label {
 	font-weight: 400;
 }
 
+input {
+	height: 32px;
+	font: unset;
+	font-family: 'Inter';
+	font-weight: 500;
+	font-size: 1em;
+	color: var(--text-color);
+	letter-spacing: -0.02em;
+	border: 1px solid #e5e5e5;
+	border-radius: 6px;
+	padding: 0 10px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+input:focus {
+	outline: none;
+	border: var(--input-focus-border);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+textarea,
+input[type='text'],
+input[type=] {
+	-webkit-appearance: none;
+}
+
+/* Firefox */
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+
 .input-with-icon {
 	cursor: text;
 	position: relative;
