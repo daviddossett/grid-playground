@@ -6,90 +6,14 @@ import { EditorSidebar } from '../editor-sidebar/EditorSidebar';
 import { Header } from '../header/Header';
 import { useMediaQuery } from 'react-responsive';
 import { breakpoint } from '../../styles/breakpoints';
-import { grid } from '../../icons/icons';
+import { defaultGridState, TrackMode } from '../../templates/grid';
+import { IColumn } from './App.types';
 
 declare global {
 	interface Window {
 		analytics: any;
 	}
 }
-
-enum TrackMode {
-	fr = 'fr',
-	px = 'px',
-	percent = '%',
-	em = 'em',
-	auto = 'auto',
-	minContent = 'min-content',
-	maxContent = 'max-content',
-	minmax = 'minmax',
-}
-
-interface IColumn {
-	id: string;
-	widthValue: number;
-	widthMode: TrackMode;
-}
-
-interface IRow {
-	id: string;
-	heightValue: number;
-	heightMode: TrackMode;
-}
-
-export interface IGridState {
-	columns: IColumn[];
-	rows: IRow[];
-	paddingTopBottom: number;
-	paddingLeftRight: number;
-	columnGap: number;
-	rowGap: number;
-}
-
-const defaultColumns: IColumn[] = [
-	{
-		id: '0',
-		widthValue: 1,
-		widthMode: TrackMode.fr,
-	},
-	{
-		id: '1',
-		widthValue: 2,
-		widthMode: TrackMode.fr,
-	},
-	{
-		id: '2',
-		widthValue: 3,
-		widthMode: TrackMode.fr,
-	},
-	{
-		id: '3',
-		widthValue: 4,
-		widthMode: TrackMode.fr,
-	},
-];
-
-const defaultRows: IRow[] = [
-	{
-		id: '0',
-		heightValue: 1,
-		heightMode: TrackMode.fr,
-	},
-	{
-		id: '1',
-		heightValue: 1,
-		heightMode: TrackMode.fr,
-	},
-];
-
-const defaultGridState: IGridState = {
-	columns: defaultColumns,
-	rows: defaultRows,
-	paddingTopBottom: 32,
-	paddingLeftRight: 32,
-	columnGap: 16,
-	rowGap: 16,
-};
 
 export const App = () => {
 	const [isCodeSidebarVisible, setIsCodeSidebarVisible] = useState(false);
@@ -138,7 +62,7 @@ export const App = () => {
 		console.log(`columnIdToDelete: ${columnIdToDelete}`);
 
 		const newColumns = gridState.columns.filter(
-			(column) => column.id !== columnIdToDelete
+			(column: IColumn) => column.id !== columnIdToDelete
 		);
 		setGridState({
 			...gridState,

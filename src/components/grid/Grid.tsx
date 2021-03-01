@@ -1,4 +1,4 @@
-import { IGridState } from '../app/App';
+import { IGridState } from '../app/App.types';
 
 interface IGridProps {
 	className: string;
