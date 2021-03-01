@@ -49,7 +49,7 @@ export const App = () => {
 		const newColumn: IColumn = {
 			id: (gridState.columns.length + 1).toString(),
 			widthMode: TrackMode.fr,
-			widthValue: gridState.columns.length + 1,
+			widthValue: 1,
 		};
 		setGridState({
 			...gridState,
@@ -59,11 +59,26 @@ export const App = () => {
 
 	function handleDeleteColumn(e: any) {
 		const columnIdToDelete = e.currentTarget.id;
-		console.log(`columnIdToDelete: ${columnIdToDelete}`);
 
 		const newColumns = gridState.columns.filter(
 			(column: IColumn) => column.id !== columnIdToDelete
 		);
+		setGridState({
+			...gridState,
+			columns: newColumns,
+		});
+	}
+
+	function handleUpdateColumn(e: any) {
+		const columnIdToUpdate = e.target.id;
+		const newColumnValue = e.target.value;
+
+		const newColumns = gridState.columns.map((column) => {
+			if (column.id === columnIdToUpdate) {
+				column.widthValue = newColumnValue;
+			}
+			return column;
+		});
 		setGridState({
 			...gridState,
 			columns: newColumns,
@@ -78,6 +93,7 @@ export const App = () => {
 				onDeleteColumn={handleDeleteColumn}
 				onGapChange={handleGapChange}
 				onPaddingChange={handlePaddingChange}
+				onUpdateColumn={handleUpdateColumn}
 				className={'overlay-editor'}
 			/>
 			<div className={'overlay'} onClick={toggleEditorSidebar} />
@@ -91,6 +107,7 @@ export const App = () => {
 			onDeleteColumn={handleDeleteColumn}
 			onGapChange={handleGapChange}
 			onPaddingChange={handlePaddingChange}
+			onUpdateColumn={handleUpdateColumn}
 			className={'editor'}
 		/>
 	);
@@ -114,7 +131,7 @@ export const App = () => {
 				/>
 			)}
 			{!isLargeScreen && isEditorSidebarVisible ? EditorWithOverlay : Editor}
-			<Grid className={'grid'} grid={gridState} />
+			<Grid className={'grid'} gridState={gridState} />
 			{!isLargeScreen && isCodeSidebarVisible ? CodeWithOverlay : Code}
 		</div>
 	);

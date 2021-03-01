@@ -19,17 +19,17 @@ export const defaultColumns: IColumn[] = [
 	},
 	{
 		id: '1',
-		widthValue: 2,
+		widthValue: 1,
 		widthMode: TrackMode.fr,
 	},
 	{
 		id: '2',
-		widthValue: 3,
+		widthValue: 1,
 		widthMode: TrackMode.fr,
 	},
 	{
 		id: '3',
-		widthValue: 4,
+		widthValue: 1,
 		widthMode: TrackMode.fr,
 	},
 ];
