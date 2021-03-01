@@ -6,6 +6,7 @@ import { EditorSidebar } from '../editor-sidebar/EditorSidebar';
 import { Header } from '../header/Header';
 import { useMediaQuery } from 'react-responsive';
 import { breakpoint } from '../../styles/breakpoints';
+import { grid } from '../../icons/icons';
 
 declare global {
 	interface Window {
@@ -124,7 +125,7 @@ export const App = () => {
 		const newColumn: IColumn = {
 			id: (gridState.columns.length + 1).toString(),
 			widthMode: TrackMode.fr,
-			widthValue: 1,
+			widthValue: gridState.columns.length + 1,
 		};
 		setGridState({
 			...gridState,
@@ -133,10 +134,16 @@ export const App = () => {
 	}
 
 	function handleDeleteColumn(e: any) {
-		const columnIdToDelete = e.target.id;
-		// Create a new array of columns without the column containing the id above
-		// Set the gridState's columns to that new array of columns
-		// Profit
+		const columnIdToDelete = e.currentTarget.id;
+		console.log(`columnIdToDelete: ${columnIdToDelete}`);
+
+		const newColumns = gridState.columns.filter(
+			(column) => column.id !== columnIdToDelete
+		);
+		setGridState({
+			...gridState,
+			columns: newColumns,
+		});
 	}
 
 	const EditorWithOverlay = (

@@ -25,6 +25,7 @@ export const ColumnEditor = ({
 					value={column.widthValue}
 					onDelete={onDeleteColumn}
 					id={column.id}
+					key={column.id}
 				/>
 			);
 		});
