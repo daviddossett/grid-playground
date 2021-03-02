@@ -1,42 +1,42 @@
 import '../text-input/TextInput.css';
 
 interface TextInputProps {
-	label: string;
-	type: string;
-	onChange: (e: any) => void;
-	icon: any;
-	name: string;
-	value: string | number;
+  label: string;
+  type: string;
+  onChange: (e: any) => void;
+  icon: any;
+  name: string;
+  value: string | number;
 }
 
 function handleFocus(e: any) {
-	e.target.select();
+  e.target.select();
 }
 
 export const TextInput = ({
-	label,
-	type,
-	onChange,
-	icon,
-	name,
-	value,
+  label,
+  type,
+  onChange,
+  icon,
+  name,
+  value,
 }: TextInputProps) => {
-	return (
-		<div>
-			<label htmlFor={label}>{label}</label>
-			<div className={'input-with-icon'}>
-				{icon}
-				<input
-					className={'input'}
-					pattern={'[0-9]*'}
-					name={name}
-					type={type}
-					id={label}
-					value={value}
-					onFocus={handleFocus}
-					onChange={onChange}
-				/>
-			</div>
-		</div>
-	);
+  return (
+    <div>
+      <label htmlFor={label}>{label}</label>
+      <div className={'input-with-icon'}>
+        {icon}
+        <input
+          className={'input'}
+          pattern={'[0-9]*'}
+          name={name}
+          type={type}
+          id={label}
+          value={value}
+          onFocus={handleFocus}
+          onChange={onChange}
+        />
+      </div>
+    </div>
+  );
 };

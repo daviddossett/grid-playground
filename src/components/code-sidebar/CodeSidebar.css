@@ -1,25 +1,25 @@
 .code-sidebar {
-	background-color: #ffffff;
-	border-left: 1px solid #e5e5e5;
+  background-color: #ffffff;
+  border-left: 1px solid #e5e5e5;
 }
 
 .code-sidebar-header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	height: 56px;
-	padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 16px;
 }
 
 .code-sidebar-title {
-	font-size: 1em;
-	line-height: 1em;
+  font-size: 1em;
+  line-height: 1em;
 }
 
 .code-sidebar-content {
-	padding: 0 16px;
+  padding: 0 16px;
 }
 
 .copy-code-button {
-	color: #fa8686;
+  color: #fa8686;
 }

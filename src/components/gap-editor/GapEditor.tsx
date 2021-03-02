@@ -6,32 +6,32 @@ import { TextInput } from '../text-input/TextInput';
 import '../gap-editor/GapEditor.css';
 
 interface GapEditorProps {
-	onGapChange: (e: any) => void;
-	gridState: IGridState;
+  onGapChange: (e: any) => void;
+  gridState: IGridState;
 }
 
 export const GapEditor = ({ onGapChange, gridState }: GapEditorProps) => {
-	return (
-		<EditorSection>
-			<h2>Gaps</h2>
-			<div className={'input-row'}>
-				<TextInput
-					label={'Column'}
-					name={'columnGap'}
-					type={'number'}
-					icon={columnGap}
-					onChange={onGapChange}
-					value={gridState.columnGap}
-				/>
-				<TextInput
-					label={'Row'}
-					name={'rowGap'}
-					type={'number'}
-					icon={rowGap}
-					onChange={onGapChange}
-					value={gridState.rowGap}
-				/>
-			</div>
-		</EditorSection>
-	);
+  return (
+    <EditorSection>
+      <h2>Gaps</h2>
+      <div className={'input-row'}>
+        <TextInput
+          label={'Column'}
+          name={'columnGap'}
+          type={'number'}
+          icon={columnGap}
+          onChange={onGapChange}
+          value={gridState.columnGap}
+        />
+        <TextInput
+          label={'Row'}
+          name={'rowGap'}
+          type={'number'}
+          icon={rowGap}
+          onChange={onGapChange}
+          value={gridState.rowGap}
+        />
+      </div>
+    </EditorSection>
+  );
 };

@@ -1,3 +1,3 @@
 export const breakpoint = {
-	large: 1024,
+  large: 1024,
 };

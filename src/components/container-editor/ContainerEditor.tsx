@@ -6,35 +6,35 @@ import { TextInput } from '../text-input/TextInput';
 import '../container-editor/ContainerEditor.css';
 
 interface ContainerEditorProps {
-	onPaddingChange: (e: any) => void;
-	gridState: IGridState;
+  onPaddingChange: (e: any) => void;
+  gridState: IGridState;
 }
 
 export const ContainerEditor = ({
-	onPaddingChange,
-	gridState,
+  onPaddingChange,
+  gridState,
 }: ContainerEditorProps) => {
-	return (
-		<EditorSection>
-			<h2>Container</h2>
-			<div className={'input-row'}>
-				<TextInput
-					label={'Vertical'}
-					name={'paddingTopBottom'}
-					type={'number'}
-					icon={paddingTopBottom}
-					onChange={onPaddingChange}
-					value={gridState.paddingTopBottom}
-				/>
-				<TextInput
-					label={'Horizontal'}
-					name={'paddingLeftRight'}
-					type={'number'}
-					icon={paddingLeftRight}
-					onChange={onPaddingChange}
-					value={gridState.paddingLeftRight}
-				/>
-			</div>
-		</EditorSection>
-	);
+  return (
+    <EditorSection>
+      <h2>Container</h2>
+      <div className={'input-row'}>
+        <TextInput
+          label={'Vertical'}
+          name={'paddingTopBottom'}
+          type={'number'}
+          icon={paddingTopBottom}
+          onChange={onPaddingChange}
+          value={gridState.paddingTopBottom}
+        />
+        <TextInput
+          label={'Horizontal'}
+          name={'paddingLeftRight'}
+          type={'number'}
+          icon={paddingLeftRight}
+          onChange={onPaddingChange}
+          value={gridState.paddingLeftRight}
+        />
+      </div>
+    </EditorSection>
+  );
 };
