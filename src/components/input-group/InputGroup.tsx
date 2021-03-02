@@ -4,7 +4,7 @@ import '../input-group/InputGroup.css';
 
 interface InputGroupProps {
 	name?: string;
-	value: number;
+	value: number | string;
 	mode: string;
 	id: string;
 	onDeleteColumn: (e: any) => void;
@@ -34,7 +34,7 @@ export const InputGroup = ({
 				onChange={onUpdateColumn}
 				id={id}
 			/>
-			<select id={id} defaultValue={mode}>
+			<select id={id} defaultValue={mode} onChange={onUpdateColumn}>
 				<option>{TrackMode.fr}</option>
 				<option>{TrackMode.px}</option>
 				<option>{TrackMode.percent}</option>

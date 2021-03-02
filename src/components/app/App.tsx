@@ -75,26 +75,13 @@ export const App = () => {
 	function handleUpdateColumn(e: any) {
 		const columnIdToUpdate = e.target.id;
 		const newColumnValue = e.target.value;
+		const tagName = e.target.tagName;
 
 		const newColumns = gridState.columns.map((column) => {
-			if (column.id === columnIdToUpdate) {
+			if (column.id === columnIdToUpdate && tagName === 'INPUT') {
 				column.widthValue = newColumnValue;
-			}
-			return column;
-		});
-		setGridState({
-			...gridState,
-			columns: newColumns,
-		});
-	}
-
-	function handleUpdateColumnMode(e: any) {
-		const columnIdToUpdate = e.target.id;
-		const newColumnMode = e.currentTarget.value;
-
-		const newColumns = gridState.columns.map((column) => {
-			if (column.id === columnIdToUpdate) {
-				column.widthMode = newColumnMode;
+			} else if (column.id === columnIdToUpdate && tagName === 'SELECT') {
+				column.widthMode = newColumnValue;
 			}
 			return column;
 		});

@@ -2,7 +2,7 @@ import { TrackMode } from '../../templates/grid';
 
 export interface IColumn {
 	id: string;
-	widthValue: number;
+	widthValue: number | string;
 	widthMode: TrackMode;
 }
 
