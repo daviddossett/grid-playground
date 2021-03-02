@@ -69,13 +69,30 @@ export const App = () => {
 		});
 	}
 
-	function handleUpdateColumn(e: any) {
+	function handleUpdateColumnWidth(e: any) {
 		const columnIdToUpdate = e.target.id;
 		const newColumnValue = e.target.value;
 
 		const newColumns = gridState.columns.map((column) => {
 			if (column.id === columnIdToUpdate) {
 				column.widthValue = newColumnValue;
+			}
+			return column;
+		});
+		setGridState({
+			...gridState,
+			columns: newColumns,
+		});
+	}
+
+	function handleUpdateColumnMode(e: any) {
+		const columnIdToUpdate = e.target.id;
+		const newColumnMode = e.currentTarget.value;
+		console.log(newColumnMode);
+
+		const newColumns = gridState.columns.map((column) => {
+			if (column.id === columnIdToUpdate) {
+				column.widthMode = newColumnMode;
 			}
 			return column;
 		});
@@ -93,7 +110,8 @@ export const App = () => {
 				onDeleteColumn={handleDeleteColumn}
 				onGapChange={handleGapChange}
 				onPaddingChange={handlePaddingChange}
-				onUpdateColumn={handleUpdateColumn}
+				onUpdateColumnWidth={handleUpdateColumnWidth}
+				onUpdateColumnMode={handleUpdateColumnMode}
 				className={'overlay-editor'}
 			/>
 			<div className={'overlay'} onClick={toggleEditorSidebar} />
@@ -107,7 +125,8 @@ export const App = () => {
 			onDeleteColumn={handleDeleteColumn}
 			onGapChange={handleGapChange}
 			onPaddingChange={handlePaddingChange}
-			onUpdateColumn={handleUpdateColumn}
+			onUpdateColumnWidth={handleUpdateColumnWidth}
+			onUpdateColumnMode={handleUpdateColumnMode}
 			className={'editor'}
 		/>
 	);

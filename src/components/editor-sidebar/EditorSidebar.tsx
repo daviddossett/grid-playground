@@ -11,7 +11,8 @@ interface EditorSidebarProps {
 	onDeleteColumn: (e: any) => void;
 	onGapChange: (e: any) => void;
 	onPaddingChange: (e: any) => void;
-	onUpdateColumn: (e: any) => void;
+	onUpdateColumnWidth: (e: any) => void;
+	onUpdateColumnMode: (e: any) => void;
 	className?: string;
 }
 
@@ -21,7 +22,8 @@ export const EditorSidebar = ({
 	onDeleteColumn,
 	onGapChange,
 	onPaddingChange,
-	onUpdateColumn,
+	onUpdateColumnWidth,
+	onUpdateColumnMode,
 	className,
 }: EditorSidebarProps) => {
 	return (
@@ -33,7 +35,8 @@ export const EditorSidebar = ({
 				gridState={gridState}
 				onAddColumn={onAddColumn}
 				onDeleteColumn={onDeleteColumn}
-				onUpdateColumn={onUpdateColumn}
+				onUpdateColumnWidth={onUpdateColumnWidth}
+				onUpdateColumnMode={onUpdateColumnMode}
 			/>
 			<GapEditor onGapChange={onGapChange} gridState={gridState} />
 			<ContainerEditor

@@ -1,3 +1,4 @@
+import { TrackMode } from '../../templates/grid';
 import { IGridState } from '../app/App.types';
 
 interface IGridProps {
@@ -9,14 +10,22 @@ export const Grid = ({ gridState, className }: IGridProps) => {
 	const getTemplateColumns = () => {
 		let templateColumns: any[] = [];
 		gridState.columns.forEach((column) => {
-			templateColumns.push(`${column.widthValue}${column.widthMode}`);
+			if (
+				column.widthMode === TrackMode.em ||
+				column.widthMode === TrackMode.fr ||
+				column.widthMode === TrackMode.percent ||
+				column.widthMode === TrackMode.px
+			) {
+				templateColumns.push(`${column.widthValue}${column.widthMode}`);
+			} else {
+				templateColumns.push(`${column.widthMode}`);
+			}
 		});
 		let formattedColumns = templateColumns.join(' ');
 		return formattedColumns;
 	};
 
 	const templateColumns = getTemplateColumns();
-	console.log(templateColumns);
 
 	let gridStyles = {
 		display: 'grid',
@@ -27,6 +36,8 @@ export const Grid = ({ gridState, className }: IGridProps) => {
 		gridTemplateRows: `1fr`,
 		rowGap: `${gridState.rowGap}px`,
 	};
+
+	console.log(gridStyles);
 
 	const columnBackground = {
 		background: 'rgba(250, 134, 134, 0.3)',
@@ -43,7 +54,6 @@ export const Grid = ({ gridState, className }: IGridProps) => {
 	}
 
 	const columns = generateColumns();
-	console.log(columns);
 
 	return (
 		<main style={gridStyles} className={className}>
