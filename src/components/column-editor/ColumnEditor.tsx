@@ -9,16 +9,14 @@ interface ColumnEditorProps {
 	gridState: IGridState;
 	onAddColumn: () => void;
 	onDeleteColumn: (e: any) => void;
-	onUpdateColumnWidth: (e: any) => void;
-	onUpdateColumnMode: (e: any) => void;
+	onUpdateColumn: (e: any) => void;
 }
 
 export const ColumnEditor = ({
 	gridState,
 	onAddColumn,
 	onDeleteColumn,
-	onUpdateColumnWidth,
-	onUpdateColumnMode,
+	onUpdateColumn,
 }: ColumnEditorProps) => {
 	const getColumns = () => {
 		let columns: JSX.Element[] = [];
@@ -27,11 +25,10 @@ export const ColumnEditor = ({
 				<InputGroup
 					name={'Column'}
 					value={column.widthValue}
-					onDelete={onDeleteColumn}
+					onDeleteColumn={onDeleteColumn}
 					id={column.id}
 					key={column.id}
-					onUpdateColumnWidth={onUpdateColumnWidth}
-					onUpdateColumnMode={onUpdateColumnMode}
+					onUpdateColumn={onUpdateColumn}
 					mode={column.widthMode}
 				/>
 			);

@@ -8,6 +8,9 @@ import { useMediaQuery } from 'react-responsive';
 import { breakpoint } from '../../styles/breakpoints';
 import { defaultGridState, TrackMode } from '../../templates/grid';
 import { IColumn } from './App.types';
+import { ColumnEditor } from '../column-editor/ColumnEditor';
+import { ContainerEditor } from '../container-editor/ContainerEditor';
+import { GapEditor } from '../gap-editor/GapEditor';
 
 declare global {
 	interface Window {
@@ -69,7 +72,7 @@ export const App = () => {
 		});
 	}
 
-	function handleUpdateColumnWidth(e: any) {
+	function handleUpdateColumn(e: any) {
 		const columnIdToUpdate = e.target.id;
 		const newColumnValue = e.target.value;
 
@@ -88,7 +91,6 @@ export const App = () => {
 	function handleUpdateColumnMode(e: any) {
 		const columnIdToUpdate = e.target.id;
 		const newColumnMode = e.currentTarget.value;
-		console.log(newColumnMode);
 
 		const newColumns = gridState.columns.map((column) => {
 			if (column.id === columnIdToUpdate) {
@@ -104,31 +106,37 @@ export const App = () => {
 
 	const EditorWithOverlay = (
 		<div className={'overlay-container'}>
-			<EditorSidebar
-				gridState={gridState}
-				onAddColumn={handleAddColumn}
-				onDeleteColumn={handleDeleteColumn}
-				onGapChange={handleGapChange}
-				onPaddingChange={handlePaddingChange}
-				onUpdateColumnWidth={handleUpdateColumnWidth}
-				onUpdateColumnMode={handleUpdateColumnMode}
-				className={'overlay-editor'}
-			/>
+			<EditorSidebar className={'overlay-editor'}>
+				<ColumnEditor
+					gridState={gridState}
+					onAddColumn={handleAddColumn}
+					onDeleteColumn={handleDeleteColumn}
+					onUpdateColumn={handleUpdateColumn}
+				/>
+				<GapEditor onGapChange={handleGapChange} gridState={gridState} />
+				<ContainerEditor
+					onPaddingChange={handlePaddingChange}
+					gridState={gridState}
+				/>
+			</EditorSidebar>
 			<div className={'overlay'} onClick={toggleEditorSidebar} />
 		</div>
 	);
 
 	const Editor = (
-		<EditorSidebar
-			gridState={gridState}
-			onAddColumn={handleAddColumn}
-			onDeleteColumn={handleDeleteColumn}
-			onGapChange={handleGapChange}
-			onPaddingChange={handlePaddingChange}
-			onUpdateColumnWidth={handleUpdateColumnWidth}
-			onUpdateColumnMode={handleUpdateColumnMode}
-			className={'editor'}
-		/>
+		<EditorSidebar className={'editor'}>
+			<ColumnEditor
+				gridState={gridState}
+				onAddColumn={handleAddColumn}
+				onDeleteColumn={handleDeleteColumn}
+				onUpdateColumn={handleUpdateColumn}
+			/>
+			<GapEditor onGapChange={handleGapChange} gridState={gridState} />
+			<ContainerEditor
+				onPaddingChange={handlePaddingChange}
+				gridState={gridState}
+			/>
+		</EditorSidebar>
 	);
 
 	const CodeWithOverlay = (

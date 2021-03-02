@@ -37,8 +37,6 @@ export const Grid = ({ gridState, className }: IGridProps) => {
 		rowGap: `${gridState.rowGap}px`,
 	};
 
-	console.log(gridStyles);
-
 	const columnBackground = {
 		background: 'rgba(250, 134, 134, 0.3)',
 		border: '1px dashed #fa8686',

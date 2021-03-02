@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { subtract } from '../../icons/icons';
 import { TrackMode } from '../../templates/grid';
 import '../input-group/InputGroup.css';
@@ -8,9 +7,8 @@ interface InputGroupProps {
 	value: number;
 	mode: string;
 	id: string;
-	onDelete: (e: any) => void;
-	onUpdateColumnWidth: (e: any) => void;
-	onUpdateColumnMode: (e: any) => void;
+	onDeleteColumn: (e: any) => void;
+	onUpdateColumn: (e: any) => void;
 }
 
 function handleFocus(e: any) {
@@ -21,14 +19,22 @@ export const InputGroup = ({
 	name,
 	value,
 	mode,
-	onDelete,
-	onUpdateColumnWidth,
-	onUpdateColumnMode,
+	onDeleteColumn,
+	onUpdateColumn,
 	id,
 }: InputGroupProps) => {
-	const getTrackModeDropdown = () => {
-		return (
-			<select id={id} defaultValue={mode} onChange={onUpdateColumnMode}>
+	return (
+		<div className={'input-group-row'}>
+			<input
+				type={'number'}
+				pattern={'[0-9]*'}
+				name={name}
+				value={value}
+				onFocus={handleFocus}
+				onChange={onUpdateColumn}
+				id={id}
+			/>
+			<select id={id} defaultValue={mode}>
 				<option>{TrackMode.fr}</option>
 				<option>{TrackMode.px}</option>
 				<option>{TrackMode.percent}</option>
@@ -38,25 +44,8 @@ export const InputGroup = ({
 				<option>{TrackMode.maxContent}</option>
 				<option>{TrackMode.minmax}</option>
 			</select>
-		);
-	};
-
-	const trackModeDropdown = getTrackModeDropdown();
-
-	return (
-		<div className={'input-group-row'}>
-			<input
-				type={'number'}
-				pattern={'[0-9]*'}
-				name={name}
-				value={value}
-				onFocus={handleFocus}
-				onChange={onUpdateColumnWidth}
-				id={id}
-			/>
-			{trackModeDropdown}
 			<button
-				onClick={onDelete}
+				onClick={onDeleteColumn}
 				id={id}
 				className={'editor-section-add-button'}
 			>
