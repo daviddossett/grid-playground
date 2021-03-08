@@ -33,7 +33,7 @@ export const ColumnEditor = ({
         />
       );
     });
-    return <div>{columns}</div>;
+    return <div className={'column-editor-group'}>{columns}</div>;
   };
 
   const columns = getColumns();

@@ -13,7 +13,7 @@ interface GapEditorProps {
 export const GapEditor = ({ onGapChange, gridState }: GapEditorProps) => {
   return (
     <EditorSection>
-      <h2>Gaps</h2>
+      <h2>Gap</h2>
       <div className={'input-row'}>
         <TextInput
           label={'Column'}

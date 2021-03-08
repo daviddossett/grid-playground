@@ -5,15 +5,14 @@ label {
 }
 
 input {
-  height: 32px;
+  height: 30px;
   font: unset;
   font-family: 'Inter';
-  font-weight: 500;
-  font-size: 1em;
+  font-weight: 400;
+  font-size: 0.875em;
   color: var(--text-color);
   letter-spacing: -0.02em;
   border: 1px solid #e5e5e5;
-  border-radius: 6px;
   padding: 0 10px;
   width: 100%;
   box-sizing: border-box;

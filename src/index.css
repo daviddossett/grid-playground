@@ -67,10 +67,10 @@ span {
 }
 
 button {
-  height: 32px;
+  height: 30px;
   background: transparent;
-  border: 2px solid transparent;
-  border-radius: 6px;
+  border: 1px solid transparent;
+  border-radius: 4px;
   color: #1e1e1e;
   font: unset;
   font-size: 14px;
@@ -78,7 +78,7 @@ button {
   font-weight: 600;
   display: flex;
   align-items: center;
-  padding: 0px 8px;
+  padding: 0px 4px;
 }
 
 button:hover {
@@ -88,11 +88,32 @@ button:hover {
 
 button:focus {
   outline: none;
-  border: 2px solid #fa8686;
+  border: 1px solid #fa8686;
 }
 
 button:active {
   background-color: #e5e5e5;
+}
+
+select {
+  height: 30px;
+  font: unset;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 0.875em;
+  color: var(--text-color);
+  letter-spacing: -0.02em;
+  border: 1px solid #e5e5e5;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+select:hover {
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
 }
 
 @media screen and (min-width: 1024px) {
