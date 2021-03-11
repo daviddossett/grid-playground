@@ -1,4 +1,5 @@
 import { subtract } from '../../icons/icons';
+import { TrackMode } from '../app/App';
 import '../input-group/InputGroup.css';
 
 interface InputGroupProps {
