@@ -6,8 +6,6 @@ import { EditorSidebar } from '../editor-sidebar/EditorSidebar';
 import { Header } from '../header/Header';
 import { useMediaQuery } from 'react-responsive';
 import { breakpoint } from '../../styles/breakpoints';
-import { defaultGridState, TrackMode } from '../../templates/grid';
-import { IColumn } from './App.types';
 import { ColumnEditor } from '../column-editor/ColumnEditor';
 import { ContainerEditor } from '../container-editor/ContainerEditor';
 import { GapEditor } from '../gap-editor/GapEditor';
@@ -17,6 +15,83 @@ declare global {
     analytics: any;
   }
 }
+
+export enum TrackMode {
+  fr = 'fr',
+  px = 'px',
+  percent = '%',
+  em = 'em',
+  auto = 'auto',
+  minContent = 'min-content',
+  maxContent = 'max-content',
+  minmax = 'minmax',
+}
+
+export interface IColumn {
+  id: string;
+  widthValue: number | string;
+  widthMode: TrackMode;
+}
+
+export interface IRow {
+  id: string;
+  heightValue: number | string;
+  heightMode: TrackMode;
+}
+
+export interface IGridState {
+  columns: IColumn[];
+  rows: IRow[];
+  paddingTopBottom: number;
+  paddingLeftRight: number;
+  columnGap: number;
+  rowGap: number;
+}
+
+export const defaultColumns: IColumn[] = [
+  {
+    id: '0',
+    widthValue: 1,
+    widthMode: TrackMode.fr,
+  },
+  {
+    id: '1',
+    widthValue: 1,
+    widthMode: TrackMode.fr,
+  },
+  {
+    id: '2',
+    widthValue: 1,
+    widthMode: TrackMode.fr,
+  },
+  {
+    id: '3',
+    widthValue: 1,
+    widthMode: TrackMode.fr,
+  },
+];
+
+export const defaultRows: IRow[] = [
+  {
+    id: '0',
+    heightValue: 1,
+    heightMode: TrackMode.fr,
+  },
+  {
+    id: '1',
+    heightValue: 1,
+    heightMode: TrackMode.fr,
+  },
+];
+
+export const defaultGridState: IGridState = {
+  columns: defaultColumns,
+  rows: defaultRows,
+  paddingTopBottom: 32,
+  paddingLeftRight: 32,
+  columnGap: 16,
+  rowGap: 16,
+};
 
 export const App = () => {
   const [isCodeSidebarVisible, setIsCodeSidebarVisible] = useState(false);

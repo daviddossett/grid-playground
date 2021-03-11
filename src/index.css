@@ -114,6 +114,7 @@ select:hover {
 
 select:focus {
   outline: none;
+  border: 1px solid #fa8686;
 }
 
 @media screen and (min-width: 1024px) {
