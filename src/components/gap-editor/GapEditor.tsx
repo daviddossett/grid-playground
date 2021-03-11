@@ -1,6 +1,6 @@
 import React from 'react';
 import { columnGap, rowGap } from '../../icons/icons';
-import { IGridState } from '../app/App.types';
+import { IGridState } from '../app/App';
 import { EditorSection } from '../editor-section/EditorSection';
 import { TextInput } from '../text-input/TextInput';
 import '../gap-editor/GapEditor.css';

@@ -1,5 +1,4 @@
-import { TrackMode } from '../../templates/grid';
-import { IGridState } from '../app/App.types';
+import { IGridState, TrackMode } from '../app/App';
 
 interface IGridProps {
   className: string;

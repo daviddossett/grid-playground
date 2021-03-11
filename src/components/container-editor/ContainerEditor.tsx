@@ -1,6 +1,6 @@
 import React from 'react';
 import { paddingTopBottom, paddingLeftRight } from '../../icons/icons';
-import { IGridState } from '../app/App.types';
+import { IGridState } from '../app/App';
 import { EditorSection } from '../editor-section/EditorSection';
 import { TextInput } from '../text-input/TextInput';
 import '../container-editor/ContainerEditor.css';

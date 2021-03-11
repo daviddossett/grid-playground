@@ -157,6 +157,7 @@ export const App = () => {
         column.widthValue = newColumnValue;
       } else if (column.id === columnIdToUpdate && tagName === 'SELECT') {
         column.widthMode = newColumnValue;
+        column.widthValue = `32, 23`;
       }
       return column;
     });

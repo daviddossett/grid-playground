@@ -1,5 +1,4 @@
 import { subtract } from '../../icons/icons';
-import { TrackMode } from '../../templates/grid';
 import '../input-group/InputGroup.css';
 
 interface InputGroupProps {

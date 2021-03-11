@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import './CodeSidebar.css';
 import Prism from 'prismjs';
 import '../../styles/prism.css';
-import { IGridState } from '../app/App.types';
+import { IGridState } from '../app/App';
 
 interface SidebarProps {
   gridState: IGridState;
