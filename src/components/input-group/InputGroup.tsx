@@ -23,17 +23,53 @@ export const InputGroup = ({
   onUpdateColumn,
   id,
 }: InputGroupProps) => {
+  const textInput = (
+    <input
+      type={'text'}
+      name={name}
+      value={value}
+      onFocus={handleFocus}
+      onChange={onUpdateColumn}
+      id={id}
+    />
+  );
+
+  const numberInput = (
+    <input
+      type={'number'}
+      pattern={'[0-9]*'}
+      name={name}
+      value={value}
+      onFocus={handleFocus}
+      onChange={onUpdateColumn}
+      id={id}
+    />
+  );
+
+  const disabledNumberInput = (
+    <input type={'text'} disabled name={name} value={'-'} id={id} />
+  );
+
+  function getInput(mode: any) {
+    switch (mode) {
+      case TrackMode.minmax:
+        return textInput;
+      case TrackMode.minContent:
+        return disabledNumberInput;
+      case TrackMode.maxContent:
+        return disabledNumberInput;
+      case TrackMode.auto:
+        return disabledNumberInput;
+      default:
+        return numberInput;
+    }
+  }
+
+  const input = getInput(mode);
+
   return (
     <div className={'input-group-row'}>
-      <input
-        type={'number'}
-        pattern={'[0-9]*'}
-        name={name}
-        value={value}
-        onFocus={handleFocus}
-        onChange={onUpdateColumn}
-        id={id}
-      />
+      {input}
       <select id={id} defaultValue={mode} onChange={onUpdateColumn}>
         <option>{TrackMode.fr}</option>
         <option>{TrackMode.px}</option>

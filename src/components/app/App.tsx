@@ -157,7 +157,20 @@ export const App = () => {
         column.widthValue = newColumnValue;
       } else if (column.id === columnIdToUpdate && tagName === 'SELECT') {
         column.widthMode = newColumnValue;
-        column.widthValue = `32, 23`;
+        column.widthValue = '1';
+        switch (column.widthMode) {
+          case TrackMode.minmax:
+            column.widthValue = '16, 96';
+            break;
+          case TrackMode.px:
+            column.widthValue = '100';
+            break;
+          case TrackMode.percent:
+            column.widthValue = '10';
+            break;
+          default:
+            column.widthValue = '1';
+        }
       }
       return column;
     });
