@@ -6,7 +6,7 @@ import { EditorSidebar } from '../editor-sidebar/EditorSidebar';
 import { Header } from '../header/Header';
 import { useMediaQuery } from 'react-responsive';
 import { breakpoint } from '../../styles/breakpoints';
-import { ColumnEditor } from '../column-editor/ColumnEditor';
+import { GridTracksEditor } from '../grid-tracks-editor/GridTracksEditor';
 import { ContainerEditor } from '../container-editor/ContainerEditor';
 import { GapEditor } from '../gap-editor/GapEditor';
 
@@ -235,7 +235,7 @@ export const App = () => {
   const EditorWithOverlay = (
     <div className={'overlay-container'}>
       <EditorSidebar className={'overlay-editor'}>
-        <ColumnEditor
+        <GridTracksEditor
           gridState={gridState}
           onAddColumn={handleAddColumn}
           onDeleteColumn={handleDeleteColumn}
@@ -256,7 +256,7 @@ export const App = () => {
 
   const Editor = (
     <EditorSidebar className={'editor'}>
-      <ColumnEditor
+      <GridTracksEditor
         gridState={gridState}
         onAddColumn={handleAddColumn}
         onDeleteColumn={handleDeleteColumn}

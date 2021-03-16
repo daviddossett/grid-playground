@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import './CodeSidebar.css';
 import Prism from 'prismjs';
 import '../../styles/prism.css';
-import { IGridState } from '../app/App';
+import { IGridState, TrackMode } from '../app/App';
 
 interface SidebarProps {
   gridState: IGridState;
@@ -15,7 +15,50 @@ export const CodeSidebar = ({ gridState, className }: SidebarProps) => {
     Prism.highlightAll();
   });
 
+  const getTemplateColumns = () => {
+    let templateColumns: any[] = [];
+    gridState.columns.forEach((column) => {
+      if (column.widthMode === TrackMode.minmax) {
+        templateColumns.push(`${column.widthMode}(${column.widthValue})`);
+      }
+      if (
+        column.widthMode === TrackMode.em ||
+        column.widthMode === TrackMode.fr ||
+        column.widthMode === TrackMode.percent ||
+        column.widthMode === TrackMode.px
+      ) {
+        templateColumns.push(`${column.widthValue}${column.widthMode}`);
+      }
+    });
+    let formattedColumns = templateColumns.join(' ');
+    return formattedColumns;
+  };
+
+  const getTemplateRows = () => {
+    let templateRows: any[] = [];
+    gridState.rows.forEach((row) => {
+      if (row.heightMode === TrackMode.minmax) {
+        templateRows.push(`${row.heightMode}(${row.heightValue})`);
+      }
+      if (
+        row.heightMode === TrackMode.em ||
+        row.heightMode === TrackMode.fr ||
+        row.heightMode === TrackMode.percent ||
+        row.heightMode === TrackMode.px
+      ) {
+        templateRows.push(`${row.heightValue}${row.heightMode}`);
+      }
+    });
+    let formattedRows = templateRows.join(' ');
+    return formattedRows;
+  };
+
+  const templateColumns = getTemplateColumns();
+  const templateRows = getTemplateRows();
+
   const codeSnippet = `.grid-container { 
+  grid-template-columns: ${templateColumns};
+  grid-template-rows: ${templateRows};
   grid-column-gap: ${gridState.columnGap}px;
   grid-row-gap: ${gridState.rowGap}px;
   padding: ${gridState.paddingTopBottom}px ${gridState.paddingLeftRight}px; 

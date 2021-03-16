@@ -3,9 +3,9 @@ import { add } from '../../icons/icons';
 import { IGridState } from '../app/App';
 import { EditorSection } from '../editor-section/EditorSection';
 import { InputGroup } from '../input-group/InputGroup';
-import './ColumnEditor.css';
+import './GridTracksEditor.css';
 
-interface ColumnEditorProps {
+interface GridTracksEditorProps {
   gridState: IGridState;
   onAddColumn: () => void;
   onDeleteColumn: (e: any) => void;
@@ -15,7 +15,7 @@ interface ColumnEditorProps {
   onUpdateRow: (e: any) => void;
 }
 
-export const ColumnEditor = ({
+export const GridTracksEditor = ({
   gridState,
   onAddColumn,
   onDeleteColumn,
@@ -23,7 +23,7 @@ export const ColumnEditor = ({
   onAddRow,
   onDeleteRow,
   onUpdateRow,
-}: ColumnEditorProps) => {
+}: GridTracksEditorProps) => {
   const getColumns = () => {
     let columns: JSX.Element[] = [];
     gridState.columns.forEach((column) => {
