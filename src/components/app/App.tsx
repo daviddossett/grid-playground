@@ -77,11 +77,6 @@ export const defaultRows: IRow[] = [
     heightValue: 1,
     heightMode: TrackMode.fr,
   },
-  {
-    id: '1',
-    heightValue: 1,
-    heightMode: TrackMode.fr,
-  },
 ];
 
 export const defaultGridState: IGridState = {
