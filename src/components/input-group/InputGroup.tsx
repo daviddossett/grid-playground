@@ -7,8 +7,8 @@ interface InputGroupProps {
   value: number | string;
   mode: string;
   id: string;
-  onDeleteColumn: (e: any) => void;
-  onUpdateColumn: (e: any) => void;
+  onDelete: (e: any) => void;
+  onUpdate: (e: any) => void;
 }
 
 function handleFocus(e: any) {
@@ -19,8 +19,8 @@ export const InputGroup = ({
   name,
   value,
   mode,
-  onDeleteColumn,
-  onUpdateColumn,
+  onDelete,
+  onUpdate,
   id,
 }: InputGroupProps) => {
   const textInput = (
@@ -29,7 +29,7 @@ export const InputGroup = ({
       name={name}
       value={value}
       onFocus={handleFocus}
-      onChange={onUpdateColumn}
+      onChange={onUpdate}
       id={id}
     />
   );
@@ -41,7 +41,7 @@ export const InputGroup = ({
       name={name}
       value={value}
       onFocus={handleFocus}
-      onChange={onUpdateColumn}
+      onChange={onUpdate}
       id={id}
     />
   );
@@ -70,18 +70,15 @@ export const InputGroup = ({
   return (
     <div className={'input-group-row'}>
       {input}
-      <select id={id} defaultValue={mode} onChange={onUpdateColumn}>
+      <select id={id} defaultValue={mode} onChange={onUpdate}>
         <option>{TrackMode.fr}</option>
         <option>{TrackMode.px}</option>
         <option>{TrackMode.percent}</option>
         <option>{TrackMode.em}</option>
-        <option>{TrackMode.auto}</option>
-        <option>{TrackMode.minContent}</option>
-        <option>{TrackMode.maxContent}</option>
         <option>{TrackMode.minmax}</option>
       </select>
       <button
-        onClick={onDeleteColumn}
+        onClick={onDelete}
         id={id}
         className={'editor-section-add-button'}
       >

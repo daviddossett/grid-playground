@@ -5,7 +5,7 @@
   justify-content: space-between;
 }
 
-.column-editor-group {
+.editor-group {
   display: grid;
   row-gap: 8px;
 }

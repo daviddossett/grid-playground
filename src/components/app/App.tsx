@@ -135,6 +135,18 @@ export const App = () => {
     });
   }
 
+  function handleAddRow() {
+    const newRow: IRow = {
+      id: (gridState.rows.length + 1).toString(),
+      heightMode: TrackMode.fr,
+      heightValue: 1,
+    };
+    setGridState({
+      ...gridState,
+      rows: [...gridState.rows, newRow],
+    });
+  }
+
   function handleDeleteColumn(e: any) {
     const columnIdToDelete = e.currentTarget.id;
 
@@ -144,6 +156,18 @@ export const App = () => {
     setGridState({
       ...gridState,
       columns: newColumns,
+    });
+  }
+
+  function handleDeleteRow(e: any) {
+    const rowIdToDelete = e.currentTarget.id;
+
+    const newRows = gridState.rows.filter(
+      (row: IRow) => row.id !== rowIdToDelete
+    );
+    setGridState({
+      ...gridState,
+      rows: newRows,
     });
   }
 
@@ -160,7 +184,7 @@ export const App = () => {
         column.widthValue = '1';
         switch (column.widthMode) {
           case TrackMode.minmax:
-            column.widthValue = '16, 96';
+            column.widthValue = '100px, 1fr';
             break;
           case TrackMode.px:
             column.widthValue = '100';
@@ -180,6 +204,39 @@ export const App = () => {
     });
   }
 
+  function handleUpdateRow(e: any) {
+    const rowIdToUpdate = e.target.id;
+    const newRowValue = e.target.value;
+    const tagName = e.target.tagName;
+
+    const newRows = gridState.rows.map((row) => {
+      if (row.id === rowIdToUpdate && tagName === 'INPUT') {
+        row.heightValue = newRowValue;
+      } else if (row.id === rowIdToUpdate && tagName === 'SELECT') {
+        row.heightMode = newRowValue;
+        row.heightValue = '1';
+        switch (row.heightMode) {
+          case TrackMode.minmax:
+            row.heightValue = '100px, 1fr';
+            break;
+          case TrackMode.px:
+            row.heightValue = '100';
+            break;
+          case TrackMode.percent:
+            row.heightValue = '10';
+            break;
+          default:
+            row.heightValue = '1';
+        }
+      }
+      return row;
+    });
+    setGridState({
+      ...gridState,
+      rows: newRows,
+    });
+  }
+
   const EditorWithOverlay = (
     <div className={'overlay-container'}>
       <EditorSidebar className={'overlay-editor'}>
@@ -188,6 +245,9 @@ export const App = () => {
           onAddColumn={handleAddColumn}
           onDeleteColumn={handleDeleteColumn}
           onUpdateColumn={handleUpdateColumn}
+          onAddRow={handleAddRow}
+          onDeleteRow={handleDeleteRow}
+          onUpdateRow={handleUpdateRow}
         />
         <GapEditor onGapChange={handleGapChange} gridState={gridState} />
         <ContainerEditor
@@ -206,6 +266,9 @@ export const App = () => {
         onAddColumn={handleAddColumn}
         onDeleteColumn={handleDeleteColumn}
         onUpdateColumn={handleUpdateColumn}
+        onAddRow={handleAddRow}
+        onDeleteRow={handleDeleteRow}
+        onUpdateRow={handleUpdateRow}
       />
       <GapEditor onGapChange={handleGapChange} gridState={gridState} />
       <ContainerEditor

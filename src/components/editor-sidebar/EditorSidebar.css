@@ -1,6 +1,7 @@
 .editor-sidebar {
   background: #ffffff;
   height: 100%;
+  overflow-y: auto;
   border-right: 1px solid #e5e5e5;
 }
 

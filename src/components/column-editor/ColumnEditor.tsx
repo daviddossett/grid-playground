@@ -10,6 +10,9 @@ interface ColumnEditorProps {
   onAddColumn: () => void;
   onDeleteColumn: (e: any) => void;
   onUpdateColumn: (e: any) => void;
+  onAddRow: () => void;
+  onDeleteRow: (e: any) => void;
+  onUpdateRow: (e: any) => void;
 }
 
 export const ColumnEditor = ({
@@ -17,6 +20,9 @@ export const ColumnEditor = ({
   onAddColumn,
   onDeleteColumn,
   onUpdateColumn,
+  onAddRow,
+  onDeleteRow,
+  onUpdateRow,
 }: ColumnEditorProps) => {
   const getColumns = () => {
     let columns: JSX.Element[] = [];
@@ -25,28 +31,58 @@ export const ColumnEditor = ({
         <InputGroup
           name={'Column'}
           value={column.widthValue}
-          onDeleteColumn={onDeleteColumn}
+          onDelete={onDeleteColumn}
           id={column.id}
           key={column.id}
-          onUpdateColumn={onUpdateColumn}
+          onUpdate={onUpdateColumn}
           mode={column.widthMode}
         />
       );
     });
-    return <div className={'column-editor-group'}>{columns}</div>;
+    return <div className={'editor-group'}>{columns}</div>;
+  };
+
+  const getRows = () => {
+    let rows: JSX.Element[] = [];
+    gridState.rows.forEach((row) => {
+      rows.push(
+        <InputGroup
+          name={'Row'}
+          value={row.heightValue}
+          onDelete={onDeleteRow}
+          id={row.id}
+          key={row.id}
+          onUpdate={onUpdateRow}
+          mode={row.heightMode}
+        />
+      );
+    });
+    return <div className={'editor-group'}>{rows}</div>;
   };
 
   const columns = getColumns();
+  const rows = getRows();
 
   return (
-    <EditorSection>
-      <div className={'editor-section-header'}>
-        <h2>Columns</h2>
-        <button onClick={onAddColumn} className={'editor-section-add-button'}>
-          {add}
-        </button>
-      </div>
-      {columns}
-    </EditorSection>
+    <>
+      <EditorSection>
+        <div className={'editor-section-header'}>
+          <h2>Columns</h2>
+          <button onClick={onAddColumn} className={'editor-section-add-button'}>
+            {add}
+          </button>
+        </div>
+        {columns}
+      </EditorSection>
+      <EditorSection>
+        <div className={'editor-section-header'}>
+          <h2>Rows</h2>
+          <button onClick={onAddRow} className={'editor-section-add-button'}>
+            {add}
+          </button>
+        </div>
+        {rows}
+      </EditorSection>
+    </>
   );
 };

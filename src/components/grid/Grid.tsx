@@ -9,6 +9,9 @@ export const Grid = ({ gridState, className }: IGridProps) => {
   const getTemplateColumns = () => {
     let templateColumns: any[] = [];
     gridState.columns.forEach((column) => {
+      if (column.widthMode === TrackMode.minmax) {
+        templateColumns.push(`${column.widthMode}(${column.widthValue})`);
+      }
       if (
         column.widthMode === TrackMode.em ||
         column.widthMode === TrackMode.fr ||
@@ -16,15 +19,33 @@ export const Grid = ({ gridState, className }: IGridProps) => {
         column.widthMode === TrackMode.px
       ) {
         templateColumns.push(`${column.widthValue}${column.widthMode}`);
-      } else {
-        templateColumns.push(`${column.widthMode}`);
       }
     });
     let formattedColumns = templateColumns.join(' ');
     return formattedColumns;
   };
 
+  const getTemplateRows = () => {
+    let templateRows: any[] = [];
+    gridState.rows.forEach((row) => {
+      if (row.heightMode === TrackMode.minmax) {
+        templateRows.push(`${row.heightMode}(${row.heightValue})`);
+      }
+      if (
+        row.heightMode === TrackMode.em ||
+        row.heightMode === TrackMode.fr ||
+        row.heightMode === TrackMode.percent ||
+        row.heightMode === TrackMode.px
+      ) {
+        templateRows.push(`${row.heightValue}${row.heightMode}`);
+      }
+    });
+    let formattedRows = templateRows.join(' ');
+    return formattedRows;
+  };
+
   const templateColumns = getTemplateColumns();
+  const templateRows = getTemplateRows();
 
   let gridStyles = {
     display: 'grid',
@@ -32,7 +53,7 @@ export const Grid = ({ gridState, className }: IGridProps) => {
     gridTemplateColumns: `${templateColumns}`,
     columnGap: `${gridState.columnGap}px`,
     padding: `${gridState.paddingTopBottom}px ${gridState.paddingLeftRight}px`,
-    gridTemplateRows: `1fr`,
+    gridTemplateRows: `${templateRows}`,
     rowGap: `${gridState.rowGap}px`,
   };
 
@@ -41,16 +62,24 @@ export const Grid = ({ gridState, className }: IGridProps) => {
     border: '1px dashed #fa8686',
   };
 
-  function generateColumns() {
-    const columns = [];
+  function generateColumns(rowCount: number, columnCount: number) {
+    const rows = [];
 
-    for (let j = 0; j < gridState.columns.length; j++) {
-      columns.push(<div style={columnBackground} key={j} />);
+    for (let i = 0; i < rowCount; i++) {
+      const columns = [];
+
+      for (let j = 0; j < columnCount; j++) {
+        columns.push(<div style={columnBackground} key={j} />);
+      }
+      rows.push(columns);
     }
-    return columns;
+    return rows;
   }
 
-  const columns = generateColumns();
+  const columns = generateColumns(
+    gridState.rows.length,
+    gridState.columns.length
+  );
 
   return (
     <main style={gridStyles} className={className}>
