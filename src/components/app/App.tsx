@@ -96,26 +96,26 @@ export const App = () => {
 
   function toggleCodeSidebar() {
     setIsCodeSidebarVisible(!isCodeSidebarVisible);
-    window.analytics.track('Toggled code sidebar', { isCodeSidebarVisible });
+    window.analytics.track('Toggled code sidebar');
   }
 
   function toggleEditorSidebar() {
     setIsEditorSidebarVisible(!isEditorSidebarVisible);
-    window.analytics.track('Toggled editor sidebar', {
-      isEditorSidebarVisible,
-    });
+    window.analytics.track('Toggled editor sidebar');
   }
 
   function handleGapChange(e: any) {
     const name = e.target.name;
     const value = e.target.value;
     setGridState({ ...gridState, [name]: value });
+    window.analytics.track('Gap changed', { gridState });
   }
 
   function handlePaddingChange(e: any) {
     const name = e.target.name;
     const value = e.target.value;
     setGridState({ ...gridState, [name]: value });
+    window.analytics.track('Padding changed', { gridState });
   }
 
   function handleAddColumn() {
@@ -128,6 +128,7 @@ export const App = () => {
       ...gridState,
       columns: [...gridState.columns, newColumn],
     });
+    window.analytics.track('Add column', { gridState });
   }
 
   function handleAddRow() {
@@ -140,6 +141,7 @@ export const App = () => {
       ...gridState,
       rows: [...gridState.rows, newRow],
     });
+    window.analytics.track('Add row', { gridState });
   }
 
   function handleDeleteColumn(e: any) {
@@ -152,6 +154,7 @@ export const App = () => {
       ...gridState,
       columns: newColumns,
     });
+    window.analytics.track('Delete column', { gridState });
   }
 
   function handleDeleteRow(e: any) {
@@ -164,6 +167,7 @@ export const App = () => {
       ...gridState,
       rows: newRows,
     });
+    window.analytics.track('Delete row', { gridState });
   }
 
   function handleUpdateColumn(e: any) {
@@ -197,6 +201,7 @@ export const App = () => {
       ...gridState,
       columns: newColumns,
     });
+    window.analytics.track('Updated column', { gridState });
   }
 
   function handleUpdateRow(e: any) {
@@ -230,6 +235,7 @@ export const App = () => {
       ...gridState,
       rows: newRows,
     });
+    window.analytics.track('Updated row', { gridState });
   }
 
   const EditorWithOverlay = (
