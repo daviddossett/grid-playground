@@ -82,8 +82,8 @@ export const defaultRows: IRow[] = [
 export const defaultGridState: IGridState = {
   columns: defaultColumns,
   rows: defaultRows,
-  paddingTopBottom: 32,
-  paddingLeftRight: 32,
+  paddingTopBottom: 24,
+  paddingLeftRight: 24,
   columnGap: 16,
   rowGap: 16,
 };
