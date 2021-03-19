@@ -1,6 +1,6 @@
 # Grid Playground
 
-Visually create grid layouts and get ready-to-implement CSS grid code
+Create grid layouts and get ready-to-implement CSS grid code
 
 ## Coming next
 
