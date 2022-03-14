@@ -10,7 +10,7 @@ interface GapEditorProps {
   gridState: IGridState;
 }
 
-export const GapEditor = ({ onGapChange, gridState }: GapEditorProps) => {
+export const GridGapEditor = ({ onGapChange, gridState }: GapEditorProps) => {
   return (
     <EditorSection>
       <h2>Gap</h2>
