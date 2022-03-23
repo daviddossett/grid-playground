@@ -10,12 +10,12 @@ interface GapEditorProps {
   gridState: IGridState;
 }
 
-export const GapManager = ({ onGapChange, gridState }: GapEditorProps) => {
+export const GapEditor = ({ onGapChange, gridState }: GapEditorProps) => {
   return (
     <EditorSection>
       <h2>Gap</h2>
       <div className={'input-row'}>
-        <TextInputTitle
+        <TextInput
           label={'Column'}
           name={'columnGap'}
           type={'number'}
