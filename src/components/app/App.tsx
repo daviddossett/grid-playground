@@ -13,6 +13,7 @@ import { GapEditor } from '../gap-editor/GapEditor';
 declare global {
   interface Window {
     analytics: any;
+    anotherField: any;
   }
 }
 
@@ -21,9 +22,9 @@ export enum TrackMode {
   px = 'px',
   percent = '%',
   em = 'em',
+  rem = 'rem',
   auto = 'auto',
   minContent = 'min-content',
-  maxContent = 'max-content',
   minmax = 'minmax',
 }
 
@@ -31,17 +32,18 @@ export interface IColumn {
   id: string;
   widthValue: number | string;
   widthMode: TrackMode;
+  columnType: string;
 }
 
 export interface IRow {
   id: string;
   heightValue: number | string;
   heightMode: TrackMode;
+  rowType: string;
 }
 
 export interface IGridState {
   columns: IColumn[];
-  rows: IRow[];
   paddingTopBottom: number;
   paddingLeftRight: number;
   columnGap: number;
@@ -147,9 +149,7 @@ export const App = () => {
   function handleDeleteColumn(e: any) {
     const columnIdToDelete = e.currentTarget.id;
 
-    const newColumns = gridState.columns.filter(
-      (column: IColumn) => column.id !== columnIdToDelete
-    );
+    const newColumns = gridState.columns.filter((column: IColumn) => column.id !== columnIdToDelete);
     setGridState({
       ...gridState,
       columns: newColumns,
@@ -160,9 +160,7 @@ export const App = () => {
   function handleDeleteRow(e: any) {
     const rowIdToDelete = e.currentTarget.id;
 
-    const newRows = gridState.rows.filter(
-      (row: IRow) => row.id !== rowIdToDelete
-    );
+    const newRows = gridState.rows.filter((row: IRow) => row.id !== rowIdToDelete);
     setGridState({
       ...gridState,
       rows: newRows,
@@ -251,10 +249,7 @@ export const App = () => {
           onUpdateRow={handleUpdateRow}
         />
         <GapEditor onGapChange={handleGapChange} gridState={gridState} />
-        <ContainerEditor
-          onPaddingChange={handlePaddingChange}
-          gridState={gridState}
-        />
+        <ContainerEditor onPaddingChange={handlePaddingChange} gridState={gridState} />
       </EditorSidebar>
       <div className={'overlay'} onClick={toggleEditorSidebar} />
     </div>
@@ -272,10 +267,7 @@ export const App = () => {
         onUpdateRow={handleUpdateRow}
       />
       <GapEditor onGapChange={handleGapChange} gridState={gridState} />
-      <ContainerEditor
-        onPaddingChange={handlePaddingChange}
-        gridState={gridState}
-      />
+      <ContainerEditor onPaddingChange={handlePaddingChange} gridState={gridState} />
     </EditorSidebar>
   );
 
