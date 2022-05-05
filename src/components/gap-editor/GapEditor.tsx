@@ -10,9 +10,9 @@ interface GapEditorProps {
   gridState: IGridState;
 }
 
-export const GridGapEditor = ({ onGapChange, gridState }: GapEditorProps) => {
+export const GapEditor = ({ onGapChange, gridState }: GapEditorProps) => {
   return (
-    <GridEditorSection>
+    <EditorSection>
       <h2>Gap</h2>
       <div className={'input-row'}>
         <TextInput
@@ -32,6 +32,6 @@ export const GridGapEditor = ({ onGapChange, gridState }: GapEditorProps) => {
           value={gridState.rowGap}
         />
       </div>
-    </GridEditorSection>
+    </EditorSection>
   );
 };
