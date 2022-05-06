@@ -13,16 +13,17 @@ import { GapEditor } from '../gap-editor/GapEditor';
 declare global {
   interface Window {
     analytics: any;
+    foo: any;
   }
 }
 
 export enum TrackMode {
   fr = 'fr',
   px = 'px',
+  minContent = 'min-content',
   percent = '%',
   em = 'em',
   auto = 'auto',
-  minContent = 'min-content',
   minmax = 'minmax',
 }
 
@@ -30,12 +31,14 @@ export interface IColumn {
   id: string;
   widthValue: number | string;
   widthMode: TrackMode;
+  columnType: string;
 }
 
 export interface IRow {
   id: string;
   heightValue: number | string;
   heightMode: TrackMode;
+  rowType: string;
 }
 
 export interface IGridState {
