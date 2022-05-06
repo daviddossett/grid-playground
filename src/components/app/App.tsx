@@ -10,6 +10,12 @@ import { GridTracksEditor } from '../grid-tracks-editor/GridTracksEditor';
 import { ContainerEditor } from '../container-editor/ContainerEditor';
 import { GapEditor } from '../gap-editor/GapEditor';
 
+declare global {
+  interface Window {
+    analytics: any;
+  }
+}
+
 export enum TrackMode {
   fr = 'fr',
   px = 'px',
