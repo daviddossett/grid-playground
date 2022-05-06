@@ -24,16 +24,12 @@ export interface IColumn {
   id: string;
   widthValue: number | string;
   widthMode: TrackMode;
-  columnType: string;
-  columnHeight: number;
 }
 
 export interface IRow {
   id: string;
   heightValue: number | string;
   heightMode: TrackMode;
-  rowType: string;
-  rowWidth: number;
 }
 
 export interface IGridState {
