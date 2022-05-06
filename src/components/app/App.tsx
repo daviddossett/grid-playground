@@ -10,32 +10,27 @@ import { GridTracksEditor } from '../grid-tracks-editor/GridTracksEditor';
 import { ContainerEditor } from '../container-editor/ContainerEditor';
 import { GapEditor } from '../gap-editor/GapEditor';
 
-declare global {
-  interface Window {
-    analytics: any;
-  }
-}
-
 export enum TrackMode {
   fr = 'fr',
   px = 'px',
   percent = '%',
   em = 'em',
+  rem = 'rem',
   auto = 'auto',
   minContent = 'min-content',
   minmax = 'minmax',
-}
-
-export interface IColumn {
-  id: string;
-  widthValue: number | string;
-  widthMode: TrackMode;
 }
 
 export interface IRow {
   id: string;
   heightValue: number | string;
   heightMode: TrackMode;
+}
+
+export interface IColumn {
+  id: string;
+  widthValue: number | string;
+  widthMode: TrackMode;
 }
 
 export interface IGridState {
