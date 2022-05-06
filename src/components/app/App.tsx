@@ -25,14 +25,8 @@ export enum TrackMode {
   rem = 'rem',
   auto = 'auto',
   minContent = 'min-content',
+  maxContent = 'max-content',
   minmax = 'minmax',
-}
-
-export interface IColumn {
-  id: string;
-  widthValue: number | string;
-  widthMode: TrackMode;
-  columnType: string;
 }
 
 export interface IRow {
@@ -40,6 +34,13 @@ export interface IRow {
   heightValue: number | string;
   heightMode: TrackMode;
   rowType: string;
+}
+
+export interface IColumn {
+  id: string;
+  widthValue: number | string;
+  widthMode: TrackMode;
+  columnType: string;
 }
 
 export interface IGridState {
