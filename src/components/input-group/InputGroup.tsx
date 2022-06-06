@@ -15,7 +15,7 @@ function handleFocus(e: any) {
   e.target.select();
 }
 
-export const InputGroup = ({
+export const InputGroupEditor = ({
   name,
   value,
   mode,
@@ -28,13 +28,11 @@ export const InputGroup = ({
       type={'text'}
       name={name}
       value={value}
-      onFocus={handleFocus}
-      onChange={onUpdate}
       id={id}
     />
   );
 
-  const numberInput = (
+  const numberInputEditor = (
     <input
       type={'number'}
       pattern={'[0-9]*'}
@@ -50,16 +48,16 @@ export const InputGroup = ({
 
   function getInput(mode: any) {
     switch (mode) {
-      case TrackMode.minmax:
-        return textInput;
       case TrackMode.minContent:
         return disabledNumberInput;
+      case TrackMode.minmax:
+        return textInput;
+        case TrackMode.auto:
+          return disabledNumberInput;
       case TrackMode.maxContent:
         return disabledNumberInput;
-      case TrackMode.auto:
-        return disabledNumberInput;
-      default:
-        return numberInput;
+        default:
+        return numberInputEditor;
     }
   }
 
