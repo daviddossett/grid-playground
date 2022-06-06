@@ -38,8 +38,6 @@ export const InputEditorGroup = ({ name, value, mode, onDelete, onUpdate, id }: 
     switch (mode) {
       case TrackMode.minmax:
         return textInput;
-      case TrackMode.minContent:
-        return disabledNumberInput;
       case TrackMode.maxContent:
         return disabledNumberInput;
       case TrackMode.auto:
@@ -49,11 +47,11 @@ export const InputEditorGroup = ({ name, value, mode, onDelete, onUpdate, id }: 
     }
   }
 
-  const input = getInput(mode);
+  const inputComponents = getInput(mode);
 
   return (
     <div className={'input-group-row'}>
-      {input}
+      {inputComponent}
       <select id={id} defaultValue={mode} onChange={onUpdate}>
         <option>{TrackMode.fr}</option>
         <option>{TrackMode.px}</option>
