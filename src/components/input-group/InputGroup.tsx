@@ -15,24 +15,8 @@ function handleFocus(e: any) {
   e.target.select();
 }
 
-export const InputGroup = ({
-  name,
-  value,
-  mode,
-  onDelete,
-  onUpdate,
-  id,
-}: InputGroupProps) => {
-  const textInput = (
-    <input
-      type={'text'}
-      name={name}
-      value={value}
-      onFocus={handleFocus}
-      onChange={onUpdate}
-      id={id}
-    />
-  );
+export const InputGroupEditor = ({ name, value, mode, onDelete, onUpdate, id }: InputGroupProps) => {
+  const textInput = <input type={'text'} name={name} value={value} id={id} />;
 
   const numberInput = (
     <input
@@ -46,9 +30,7 @@ export const InputGroup = ({
     />
   );
 
-  const disabledNumberInput = (
-    <input type={'text'} disabled name={name} value={'-'} id={id} />
-  );
+  const disabledNumberInput = <input type={'text'} disabled name={name} value={'-'} id={id} />;
 
   function getInput(mode: any) {
     switch (mode) {
@@ -77,11 +59,7 @@ export const InputGroup = ({
         <option>{TrackMode.em}</option>
         <option>{TrackMode.minmax}</option>
       </select>
-      <button
-        onClick={onDelete}
-        id={id}
-        className={'editor-section-add-button'}
-      >
+      <button onClick={onDelete} id={id} className={'editor-section-add-button'}>
         {subtract}
       </button>
     </div>
