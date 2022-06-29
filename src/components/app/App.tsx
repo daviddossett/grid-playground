@@ -20,7 +20,7 @@ export enum TrackMode {
   fr = 'fr',
   px = 'px',
   percent = '%',
-  em = 'em',
+  em = 'emr',
   auto = 'auto',
   minContent = 'min-content',
   maxContent = 'max-content',
@@ -182,7 +182,7 @@ export const App = () => {
             column.widthValue = '100px, 1fr';
             break;
           case TrackMode.px:
-            column.widthValue = '100';
+            column.widthValue = '110';
             break;
           case TrackMode.percent:
             column.widthValue = '10';
