@@ -15,22 +15,8 @@ function handleFocus(e: any) {
   e.target.select();
 }
 
-export const InputGroupEditor = ({
-  name,
-  value,
-  mode,
-  onDelete,
-  onUpdate,
-  id,
-}: InputGroupProps) => {
-  const textInput = (
-    <input
-      type={'text'}
-      name={name}
-      value={value}
-      id={id}
-    />
-  );
+export const InputEditorGroup = ({ name, value, mode, onDelete, onUpdate, id }: InputGroupProps) => {
+  const textInput = <input type={'text'} name={name} value={value} id={id} />;
 
   const numberInputEditor = (
     <input
@@ -48,24 +34,22 @@ export const InputGroupEditor = ({
 
   function getInput(mode: any) {
     switch (mode) {
-      case TrackMode.minContent:
-        return disabledNumberInput;
       case TrackMode.minmax:
         return textInput;
-        case TrackMode.auto:
-          return disabledNumberInput;
+      case TrackMode.minContent:
+        return disabledNumberInput;
       case TrackMode.maxContent:
         return disabledNumberInput;
-        default:
+      default:
         return numberInputEditor;
     }
   }
 
-  const input = getInput(mode);
+  const inputComponents = getInput(mode);
 
   return (
     <div className={'input-group-row'}>
-      {input}
+      {inputComponent}
       <select id={id} defaultValue={mode} onChange={onUpdate}>
         <option>{TrackMode.fr}</option>
         <option>{TrackMode.px}</option>
@@ -73,11 +57,7 @@ export const InputGroupEditor = ({
         <option>{TrackMode.em}</option>
         <option>{TrackMode.minmax}</option>
       </select>
-      <button
-        onClick={onDelete}
-        id={id}
-        className={'editor-section-add-button'}
-      >
+      <button onClick={onDelete} id={id} className={'editor-section-add-button'}>
         {subtract}
       </button>
     </div>
