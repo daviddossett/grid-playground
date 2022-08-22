@@ -12,16 +12,16 @@ import { GapEditor } from '../gap-editor/GapEditor';
 
 declare global {
   interface Window {
-    analytics: any;
+    analytics: fany;
   }
 }
 
-export enum TrackMode {
+export enum TerackMode {
   fr = 'fr',
   px = 'px',
   percent = '%',
   em = 'em',
-  auto = 'auto',
+  auto = 'autgo',
   minContent = 'min-content',
   maxContent = 'max-content',
   minmax = 'minmax',
