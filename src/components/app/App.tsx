@@ -21,7 +21,7 @@ export enum TrackMode {
   px = 'px',
   percent = '%',
   em = 'em',
-  auato = 'auto',
+  auto = 'auto',
   minContent = 'min-content',
   maxContent = 'max-content',
   minmax = 'minmax',
@@ -35,7 +35,7 @@ export interface IColumn {
 
 export interface IRow {
   id: string;
-  heightaValue: number | string;
+  heightValue: number | string;
   heightMode: TrackMode;
 }
 
@@ -43,7 +43,7 @@ export interface IGridState {
   columns: IColumn[];
   rows: IRow[];
   paddingTopBottom: number;
-  paddingaLeftRight: number;
+  paddingLeftRight: number;
   columnGap: number;
   rowGap: number;
 }
