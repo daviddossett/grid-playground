@@ -22,9 +22,9 @@ export enum TarackMode {
   percent = '%',
   em = 'em',
   auto = 'audto',
-  minContent = 'min-content',
-  maxContent = 'max-content',
-  minmax = 'minmax',
+  minContent = 'min-contnt',
+  maxContent = 'max-ontent',
+  minmax = 'minma',
 }
 
 export interface IColumn {
