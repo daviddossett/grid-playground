@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Grid } from '../grid/Grid';
-import { CodeSidebar } from '../code-sidebar/CodeSidebar';
-import './App.css';
-import { EditorSidebar } from '../editor-sidebar/EditorSidebar';
-import { Header } from '../header/Header';
-import { useMediaQuery } from 'react-responsive';
-import { breakpoint } from '../../styles/breakpoints';
-import { GridTracksEditor } from '../grid-tracks-editor/GridTracksEditor';
-import { ContainerEditor } from '../container-editor/ContainerEditor';
-import { GapEditor } from '../gap-editor/GapEditor';
+import React, { useState } from "react";
+import { Grid } from "../grid/Grid";
+import { CodeSidebar } from "../code-sidebar/CodeSidebar";
+import "./App.css";
+import { EditorSidebar } from "../editor-sidebar/EditorSidebar";
+import { Header } from "../header/Header";
+import { useMediaQuery } from "react-responsive";
+import { breakpoint } from "../../styles/breakpoints";
+import { GridTracksEditor } from "../grid-tracks-editor/GridTracksEditor";
+import { ContainerEditor } from "../container-editor/ContainerEditor";
+import { GapEditor } from "../gap-editor/GapEditor";
 
 declare global {
   interface Window {
@@ -17,14 +17,25 @@ declare global {
 }
 
 export enum TrackMode {
-  fr = 'fr',
-  px = 'px',
-  percent = '%',
-  em = 'em',
-  auto = 'auto',
-  minContent = 'min-content',
-  maxContent = 'max-content',
-  minmax = 'minmax',
+  fr = "fr",
+  px = "px",
+  percent = "%",
+  em = "em",
+  auto = "auto",
+  minContent = "min-content",
+  maxContent = "max-content",
+  minmax = "minmax",
+}
+
+export enum TrackMode {
+  fr = "fr",
+  px = "px",
+  percent = "%",
+  em = "em",
+  auto = "auto",
+  minContent = "min-content",
+  maxContent = "max-content",
+  minmax = "minmax",
 }
 
 export interface IColumn {
@@ -50,22 +61,22 @@ export interface IGridState {
 
 export const defaultColumns: IColumn[] = [
   {
-    id: '0',
+    id: "0",
     widthValue: 1,
     widthMode: TrackMode.fr,
   },
   {
-    id: '1',
+    id: "1",
     widthValue: 1,
     widthMode: TrackMode.fr,
   },
   {
-    id: '2',
+    id: "2",
     widthValue: 1,
     widthMode: TrackMode.fr,
   },
   {
-    id: '3',
+    id: "3",
     widthValue: 1,
     widthMode: TrackMode.fr,
   },
@@ -73,7 +84,7 @@ export const defaultColumns: IColumn[] = [
 
 export const defaultRows: IRow[] = [
   {
-    id: '0',
+    id: "0",
     heightValue: 1,
     heightMode: TrackMode.fr,
   },
@@ -96,26 +107,26 @@ export const App = () => {
 
   function toggleCodeSidebar() {
     setIsCodeSidebarVisible(!isCodeSidebarVisible);
-    window.analytics.track('Toggled code sidebar');
+    window.analytics.track("Toggled code sidebar");
   }
 
   function toggleEditorSidebar() {
     setIsEditorSidebarVisible(!isEditorSidebarVisible);
-    window.analytics.track('Toggled editor sidebar');
+    window.analytics.track("Toggled editor sidebar");
   }
 
   function handleGapChange(e: any) {
     const name = e.target.name;
     const value = e.target.value;
     setGridState({ ...gridState, [name]: value });
-    window.analytics.track('Gap changed', { gridState });
+    window.analytics.track("Gap changed", { gridState });
   }
 
   function handlePaddingChange(e: any) {
     const name = e.target.name;
     const value = e.target.value;
     setGridState({ ...gridState, [name]: value });
-    window.analytics.track('Padding changed', { gridState });
+    window.analytics.track("Padding changed", { gridState });
   }
 
   function handleAddColumn() {
@@ -128,7 +139,7 @@ export const App = () => {
       ...gridState,
       columns: [...gridState.columns, newColumn],
     });
-    window.analytics.track('Add column', { gridState });
+    window.analytics.track("Add column", { gridState });
   }
 
   function handleAddRow() {
@@ -141,29 +152,33 @@ export const App = () => {
       ...gridState,
       rows: [...gridState.rows, newRow],
     });
-    window.analytics.track('Add row', { gridState });
+    window.analytics.track("Add row", { gridState });
   }
 
   function handleDeleteColumn(e: any) {
     const columnIdToDelete = e.currentTarget.id;
 
-    const newColumns = gridState.columns.filter((column: IColumn) => column.id !== columnIdToDelete);
+    const newColumns = gridState.columns.filter(
+      (column: IColumn) => column.id !== columnIdToDelete
+    );
     setGridState({
       ...gridState,
       columns: newColumns,
     });
-    window.analytics.track('Delete column', { gridState });
+    window.analytics.track("Delete column", { gridState });
   }
 
   function handleDeleteRow(e: any) {
     const rowIdToDelete = e.currentTarget.id;
 
-    const newRows = gridState.rows.filter((row: IRow) => row.id !== rowIdToDelete);
+    const newRows = gridState.rows.filter(
+      (row: IRow) => row.id !== rowIdToDelete
+    );
     setGridState({
       ...gridState,
       rows: newRows,
     });
-    window.analytics.track('Delete row', { gridState });
+    window.analytics.track("Delete row", { gridState });
   }
 
   function handleUpdateColumn(e: any) {
@@ -172,23 +187,23 @@ export const App = () => {
     const tagName = e.target.tagName;
 
     const newColumns = gridState.columns.map((column) => {
-      if (column.id === columnIdToUpdate && tagName === 'INPUT') {
+      if (column.id === columnIdToUpdate && tagName === "INPUT") {
         column.widthValue = newColumnValue;
-      } else if (column.id === columnIdToUpdate && tagName === 'SELECT') {
+      } else if (column.id === columnIdToUpdate && tagName === "SELECT") {
         column.widthMode = newColumnValue;
-        column.widthValue = '1';
+        column.widthValue = "1";
         switch (column.widthMode) {
           case TrackMode.minmax:
-            column.widthValue = '120px, 1fr';
+            column.widthValue = "120px, 1fr";
             break;
           case TrackMode.px:
-            column.widthValue = '110';
+            column.widthValue = "110";
             break;
           case TrackMode.percent:
-            column.widthValue = '10';
+            column.widthValue = "10";
             break;
           default:
-            column.widthValue = '1';
+            column.widthValue = "1";
         }
       }
       return column;
@@ -197,7 +212,7 @@ export const App = () => {
       ...gridState,
       columns: newColumns,
     });
-    window.analytics.track('Updated column', { gridState });
+    window.analytics.track("Updated column", { gridState });
   }
 
   function handleUpdateRow(e: any) {
@@ -206,23 +221,23 @@ export const App = () => {
     const tagName = e.target.tagName;
 
     const newRows = gridState.rows.map((row) => {
-      if (row.id === rowIdToUpdate && tagName === 'INPUT') {
+      if (row.id === rowIdToUpdate && tagName === "INPUT") {
         row.heightValue = newRowValue;
-      } else if (row.id === rowIdToUpdate && tagName === 'SELECT') {
+      } else if (row.id === rowIdToUpdate && tagName === "SELECT") {
         row.heightMode = newRowValue;
-        row.heightValue = '1';
+        row.heightValue = "1";
         switch (row.heightMode) {
           case TrackMode.minmax:
-            row.heightValue = '100px, 1fr';
+            row.heightValue = "100px, 1fr";
             break;
           case TrackMode.px:
-            row.heightValue = '100';
+            row.heightValue = "100";
             break;
           case TrackMode.percent:
-            row.heightValue = '10';
+            row.heightValue = "10";
             break;
           default:
-            row.heightValue = '1';
+            row.heightValue = "1";
         }
       }
       return row;
@@ -231,12 +246,12 @@ export const App = () => {
       ...gridState,
       rows: newRows,
     });
-    window.analytics.track('Updated row', { gridState });
+    window.analytics.track("Updated row", { gridState });
   }
 
   const EditorWithOverlay = (
-    <div className={'overlay-container'}>
-      <EditorSidebar className={'overlay-editor'}>
+    <div className={"overlay-container"}>
+      <EditorSidebar className={"overlay-editor"}>
         <GridTracksEditor
           gridState={gridState}
           onAddColumn={handleAddColumn}
@@ -247,14 +262,17 @@ export const App = () => {
           onUpdateRow={handleUpdateRow}
         />
         <GapEditor onGapChange={handleGapChange} gridState={gridState} />
-        <ContainerEditor onPaddingChange={handlePaddingChange} gridState={gridState} />
+        <ContainerEditor
+          onPaddingChange={handlePaddingChange}
+          gridState={gridState}
+        />
       </EditorSidebar>
-      <div className={'overlay'} onClick={toggleEditorSidebar} />
+      <div className={"overlay"} onClick={toggleEditorSidebar} />
     </div>
   );
 
   const Editor = (
-    <EditorSidebar className={'editor'}>
+    <EditorSidebar className={"editor"}>
       <GridTracksEditor
         gridState={gridState}
         onAddColumn={handleAddColumn}
@@ -265,30 +283,33 @@ export const App = () => {
         onUpdateRow={handleUpdateRow}
       />
       <GapEditor onGapChange={handleGapChange} gridState={gridState} />
-      <ContainerEditor onPaddingChange={handlePaddingChange} gridState={gridState} />
+      <ContainerEditor
+        onPaddingChange={handlePaddingChange}
+        gridState={gridState}
+      />
     </EditorSidebar>
   );
 
   const CodeWithOverlay = (
-    <div className={'overlay-container'}>
-      <CodeSidebar gridState={gridState} className={'overlay-code'} />
-      <div className={'overlay'} onClick={toggleCodeSidebar} />
+    <div className={"overlay-container"}>
+      <CodeSidebar gridState={gridState} className={"overlay-code"} />
+      <div className={"overlay"} onClick={toggleCodeSidebar} />
     </div>
   );
 
-  const Code = <CodeSidebar gridState={gridState} className={'code'} />;
+  const Code = <CodeSidebar gridState={gridState} className={"code"} />;
 
   return (
-    <div className={'app'}>
+    <div className={"app"}>
       {!isLargeScreen && (
         <Header
-          className={'app-header-main'}
+          className={"app-header-main"}
           onCodeButtonClick={toggleCodeSidebar}
           onEditorButtonClick={toggleEditorSidebar}
         />
       )}
       {!isLargeScreen && isEditorSidebarVisible ? EditorWithOverlay : Editor}
-      <Grid className={'grid'} gridState={gridState} />
+      <Grid className={"grid"} gridState={gridState} />
       {!isLargeScreen && isCodeSidebarVisible ? CodeWithOverlay : Code}
     </div>
   );
