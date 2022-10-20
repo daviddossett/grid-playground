@@ -19,7 +19,6 @@ declare global {
 export enum TrackMode {
   fr = 'fr',
   px = 'px',
-  percent = '%',
   em = 'em',
   auto = 'auto',
   minContent = 'min-content',
