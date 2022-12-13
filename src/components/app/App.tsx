@@ -13,6 +13,7 @@ import { GapEditor } from '../gap-editor/GapEditor';
 declare global {
   interface Window {
     analytics: any;
+    analytics2: any;
   }
 }
 
