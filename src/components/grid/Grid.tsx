@@ -11,6 +11,7 @@ export const Grid = ({ gridState, className }: IGridProps) => {
     gridState.columns.forEach((column) => {
       if (column.widthMode === TrackMode.minmax) {
         templateColumns.push(`${column.widthMode}(${column.widthValue})`);
+        templ
       }
       if (
         column.widthMode === TrackMode.em ||
