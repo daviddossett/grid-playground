@@ -24,3 +24,5 @@ export const Header = ({
     </header>
   );
 };
+
+export const foo;
