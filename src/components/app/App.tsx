@@ -23,8 +23,6 @@ export enum TrackMode {
   em = 'em',
   auto = 'auto',
   minContent = 'min-content',
-  maxContent = 'max-content',
-  minmax = 'minmax',
 }
 
 export interface IColumn {
