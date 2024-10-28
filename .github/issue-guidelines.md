@@ -5,7 +5,7 @@
 2. **Include a screenshot if applicable**: This is a visual tool. Screenshots help us quickly understand what's gone wrong. 
 3. **Don't use an inappropriate tone or language**: Be nice. Nobody likes being yelled at! Don't use all caps in the issue body.
 
-Here's an example of a clear, actionable bug report to base issue feedback on:
+<!-- Here's an example of a clear, actionable bug report to base issue feedback on:
 
 ## Description
 
@@ -40,4 +40,4 @@ Example code:
 
 Here's an example of an issue that is hard to understand and act on:
 
-The sidebar is broken and the code isn't fully visible.
+The sidebar is broken and the code isn't fully visible. -->
