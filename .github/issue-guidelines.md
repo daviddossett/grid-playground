@@ -1,5 +1,3 @@
-# Issue Guidelines
-
 ## General Guidelines
 1. **Be specific when describing bugs**: Always include a general description of the issue, expected behavior, and repro steps. Tell users which parts of their issue are unclear based on the examples below.
 2. **Include a screenshot if applicable**: This is a visual tool. Screenshots help us quickly understand what's gone wrong. 
