@@ -13,7 +13,7 @@ When using grid-playground to generate a CSS grid, the "CSS" panel that shows th
 
 The CSS should wrap to fit within the constraints of the panel.
 
-## Repro Steps / Code Example
+## Steps to Reproduce
 
 1. Create a new grid
 2. Configure the grid to have 5+ rows and columns.
