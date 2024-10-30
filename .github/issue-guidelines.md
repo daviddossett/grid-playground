@@ -3,7 +3,7 @@
 2. **Include a screenshot**: This is a visual tool. Screenshots help us quickly understand what's gone wrong. 
 3. **Be nice**: Nobody likes being yelled at! Don't use all caps or a bunch of angry emojis. It doesn't help.
 
-<!-- Here's an example of a clear, actionable bug report to base issue feedback on:
+Example of a clear, actionable bug report:
 
 ## Description
 
@@ -31,7 +31,3 @@ Example code:
   padding: 32px 48px; 
 }
 ```
-
-Here's an example of an issue that is hard to understand and act on:
-
-The sidebar is broken and the code isn't fully visible. -->
