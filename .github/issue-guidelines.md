@@ -5,17 +5,17 @@
     ```
     ## Description
 
-    When using grid-playground to generate a CSS grid, the "CSS" panel that shows the code output overflows off the edge of the screen.
+    <general descripion>
 
     ## Expected Behavior
 
-    The CSS should wrap to fit within the constraints of the panel.
+    <expected behavior>
 
     [screenshot]
 
     ## Steps to Reproduce
 
-    1. Create a new grid
-    2. Configure the grid to have 5+ rows and columns.
-    3. Observe that the `grid-template-rows` and `grid-template-columns` values overflow of the right side of the panel.
+    1. ...
+    2. ...
+    3. ...
     ```
