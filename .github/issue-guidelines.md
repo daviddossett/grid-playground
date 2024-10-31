@@ -1,4 +1,3 @@
-## Guidelines
 1. **Be specific about UI**: Tell us which part of the UI you are talking about. For example, many issues reference "the sidebar". Identify if you are talking about the "editor" sidebar or the "CSS output" sidebar. 
 2. **Avoid vague issues**: Short, vague issues like "grid layout is broken" make it hard to know what needs fixing. 
 3. **Be nice!**: Nobody likes being yelled at! Don't use all caps or a bunch of angry emojis. 
