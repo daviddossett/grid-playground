@@ -29,5 +29,4 @@
         grid-row-gap: 32px;
         padding: 32px 48px; 
       }
-      
-```
+      ```
